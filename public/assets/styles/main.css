@@ -33,6 +33,15 @@
    Reset and Base Styles
    ========================================================================== */
 
+   /* From Uiverse.io by adamgiebl */ 
+/* From Uiverse.io by SelfMadeSystem */ 
+/*
+More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
+ */
+
+
+
+   
 body {
   font-family: var(--font-primary);
   margin: 0;
@@ -40,18 +49,26 @@ body {
   background-color: var(--color-dark);
   color: white;
   line-height: 1.6;
+  
 }
 
 /* ==========================================================================
    Header Styles
    ========================================================================== */
 
-.site-header {
-  background-color: var(--color-dark);
-  border-bottom: 1px solid var(--color-gray);
+.logo-header {
+  max-width: 200px;
+  height: auto;
+  width: auto; /* Mantém a proporção da imagem */
 }
 
-.header-container {
+header {
+  background-color: var(--color-dark);
+  border-bottom: 1px solid var(--color-gray);
+  
+}
+
+header div {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
@@ -60,15 +77,13 @@ body {
   align-items: center;
 }
 
-
-
-.logo {
-  max-width: 200px;
+header img {
+  max-width: 250px;
   height: auto;
   width: auto; /* Mantém a proporção da imagem */
 }
 
-.main-nav ul {
+header nav ul {
   list-style: none;
   display: flex;
   gap: var(--spacing-lg);
@@ -76,30 +91,137 @@ body {
   padding: 0;
 }
 
-.main-nav a {
+header nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  
 }
 
-.main-nav a:hover {
+header nav a:hover {
   color: var(--color-secondary);
 }
 
+
+
+
+
+/* From Uiverse.io by 212004ALJI */ 
+button,button::after {
+  padding: 10px 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: transparent;
+  position: relative;
+}
+
+button::after {
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+  clip-path: var(--move1);
+  content: 'GLITCH';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+}
+
+button:hover::after {
+  animation: glitch_4011 1s;
+  text-shadow: 10 10px 10px black;
+  animation-timing-function: steps(2, end);
+  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+  background-color: transparent;
+  border: 3px solid rgb(0, 255, 213);
+}
+
+button:hover {
+  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+}
+
+button:hover {
+  background-color: transparent;
+  border: 1px solid rgb(0, 255, 213);
+  box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+}
+
+@keyframes glitch_4011 {
+  0% {
+    clip-path: var(--move1);
+    transform: translate(0px,-10px);
+  }
+
+  10% {
+    clip-path: var(--move2);
+    transform: translate(-10px,10px);
+  }
+
+  20% {
+    clip-path: var(--move3);
+    transform: translate(10px,0px);
+  }
+
+  30% {
+    clip-path: var(--move4);
+    transform: translate(-10px,10px);
+  }
+
+  40% {
+    clip-path: var(--move5);
+    transform: translate(10px,-10px);
+  }
+
+  50% {
+    clip-path: var(--move6);
+    transform: translate(-10px,10px);
+  }
+
+  60% {
+    clip-path: var(--move1);
+    transform: translate(10px,-10px);
+  }
+
+  70% {
+    clip-path: var(--move3);
+    transform: translate(-10px,10px);
+  }
+
+  80% {
+    clip-path: var(--move2);
+    transform: translate(10px,-10px);
+  }
+
+  90% {
+    clip-path: var(--move4);
+    transform: translate(-10px,10px);
+  }
+
+  100% {
+    clip-path: var(--move1);
+    transform: translate(0);
+  }
+}
 
 
 /* ==========================================================================
    Main Content Styles
    ========================================================================== */
 
-.main-content {
+main {
   max-width: var(--form-width);
   margin: var(--spacing-xl) auto;
   padding: 0 var(--spacing-md);
 }
 
-/* Form Styles */
 form {
   background-color: var(--color-dark);
   padding: var(--spacing-xl);
@@ -107,11 +229,10 @@ form {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+form div {
   margin-bottom: var(--spacing-lg);
 }
 
-/* Input Styles */
 label {
   display: block;
   margin-bottom: var(--spacing-sm);
@@ -133,7 +254,6 @@ select {
   transition: border-color 0.3s ease;
 }
 
-/* Input Focus States */
 input:focus,
 textarea:focus,
 select:focus {
@@ -141,18 +261,11 @@ select:focus {
   border-color: var(--color-primary);
 }
 
-/* Checkbox and Radio Styles */
-.checkbox-group {
-  display: flex;
-  margin: var(--spacing-md) 0;
-  gap: var(--spacing-md);
-  font-family:  var(--font-primary);
+input[type='radio'],
+input[type='checkbox'] {
+  margin-right: var(--spacing-xs);
 }
 
-
-
-
-/* Helper Text */
 .hint {
   color: var(--color-gray);
   font-size: 0.9em;
@@ -160,7 +273,6 @@ select:focus {
   font-style: italic;
 }
 
-/* Button Styles */
 button {
   background-color: var(--color-primary);
   color: white;
@@ -176,7 +288,6 @@ button:hover {
   background-color: #0043a3;
 }
 
-/* Alert Styles */
 .alert {
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
@@ -199,7 +310,14 @@ button:hover {
    Footer Styles
    ========================================================================== */
 
-.site-footer {
+.logo-footer {
+  width: 250px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+footer {
   background-color: var(--color-dark);
   padding: var(--spacing-xl) 0;
   margin-top: var(--spacing-xl);
@@ -207,94 +325,137 @@ button:hover {
   text-align: center;
 }
 
-.footer-container {
+footer div {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
 
-.footer-logo {
-  width: 250px;
-  margin: 0 auto var(--spacing-lg);
-}
-
-.footer-logo .logo {
-  max-width: 100%;
+footer img {
+  max-width: 250px;
   height: auto;
+  width: auto; /* Mantém a proporção da imagem */
 }
 
-.footer-content {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-xl);
-  margin: var(--spacing-lg) 0;
+footer h3 {
+  margin-bottom: var(--spacing-sm);
 }
 
-.footer-section {
-  text-align: left;
+footer p {
+  margin: 0;
 }
 
-.footer-section h3 {
-  color: var(--color-secondary);
-  margin-bottom: var(--spacing-md);
-}
-
-.social-links {
-  display: flex;
-  gap: var(--spacing-md);
-}
-
-.social-link {
+footer a {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.social-link:hover {
+footer a:hover {
   color: var(--color-secondary);
 }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: var(--spacing-xl);
-  padding-top: var(--spacing-md);
-  border-top: 1px solid var(--color-gray);
+/* Propriedades compartilhadas para button e nav */
+.shared-styles {
+  padding: 10px 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: transparent;
+  position: relative;
 }
 
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
+.shared-styles::after {
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+  clip-path: var(--move1);
+  content: 'GLITCH';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+}
 
-@media (max-width: 768px) {
-  .header-container,
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
+.shared-styles:hover::after {
+  text-shadow: 10 10px 10px black;
+  animation-timing-function: steps(2, end);
+  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+  background-color: transparent;
+  border: 3px solid rgb(0, 255, 213);
+}
+
+.shared-styles:hover {
+  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+  background-color: transparent;
+  border: 1px solid rgb(0, 255, 213);
+  box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+}
+
+nav.shared-styles:hover {
+  border: none;
+  box-shadow: none;
+}
+
+@keyframes glitch_4011 {
+  0% {
+    clip-path: var(--move1);
+    transform: translate(0px,-10px);
   }
 
-  .main-nav ul {
-    flex-direction: column;
-    gap: var(--spacing-md);
+  10% {
+    clip-path: var(--move2);
+    transform: translate(-10px,10px);
   }
 
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
+  20% {
+    clip-path: var(--move3);
+    transform: translate(10px,0px);
   }
 
-  .footer-section {
-    text-align: center;
+  30% {
+    clip-path: var(--move4);
+    transform: translate(-10px,10px);
   }
 
-  .social-links {
-    justify-content: center;
+  40% {
+    clip-path: var(--move5);
+    transform: translate(10px,-10px);
   }
 
-  form {
-    padding: var(--spacing-md);
+  50% {
+    clip-path: var(--move6);
+    transform: translate(-10px,10px);
   }
 
-  button {
-    width: 100%;
+  60% {
+    clip-path: var(--move1);
+    transform: translate(10px,-10px);
+  }
+
+  70% {
+    clip-path: var(--move3);
+    transform: translate(-10px,10px);
+  }
+
+  80% {
+    clip-path: var(--move2);
+    transform: translate(10px,-10px);
+  }
+
+  90% {
+    clip-path: var(--move4);
+    transform: translate(-10px,10px);
+  }
+
+  100% {
+    clip-path: var(--move1);
+    transform: translate(0);
   }
 }
