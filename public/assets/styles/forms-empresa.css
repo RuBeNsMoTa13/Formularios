@@ -310,6 +310,11 @@ button:hover {
    Footer Styles
    ========================================================================== */
 
+.icon {
+  width: 50px;
+  height: auto;
+} 
+
 .logo-footer {
   width: 250px;
   height: auto;

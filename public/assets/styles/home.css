@@ -1,0 +1,248 @@
+/* ==========================================================================
+   Base Styles and Variables
+   ========================================================================== */
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Custom properties */
+:root {
+  /* Color Palette */
+  --color-primary: #0052cc; /* Azul Tech - Main brand color */
+  --color-secondary: #00b894; /* Verde Estratégico - Accent color */
+  --color-dark: #1d1d25; /* Azul Profundo - Dark backgrounds */
+  --color-gray: #a1a1a1; /* Cinza Balanceado - Text and borders */
+
+  /* Typography */
+  --font-primary: 'Montserrat', sans-serif; /* Headers and important text */
+  --font-secondary: 'Open Sans', sans-serif; /* Body text and forms */
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Container widths */
+  --container-width: 800px;
+  --form-width: 800px;
+}
+
+/* ==========================================================================
+   Reset and Base Styles
+   ========================================================================== */
+
+body {
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-dark);
+  color: white;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+
+.logo-header {
+  max-width: 200px;
+  height: auto;
+  width: auto; /* Mantém a proporção da imagem */
+}
+
+header {
+  background-color: var(--color-dark);
+  border-bottom: 1px solid var(--color-gray);
+}
+
+header div {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 250px;
+  height: auto;
+  width: auto; /* Mantém a proporção da imagem */
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-lg);
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   Main Content Styles
+   ========================================================================== */
+
+main {
+  max-width: var(--form-width);
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel {
+  display: flex;
+  gap: var(--spacing-lg);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: var(--spacing-lg);
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.card {
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-gray);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.card h2 {
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.card p {
+  color: white;
+  margin-bottom: var(--spacing-lg);
+}
+
+.card .button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.card .button:hover {
+  background-color: #0043a3;
+}
+
+.carousel-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.carousel-button.prev {
+  margin-right: var(--spacing-md);
+}
+
+.carousel-button.next {
+  margin-left: var(--spacing-md);
+}
+
+.pause-container {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+}
+
+.carousel-button.pause {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+
+
+.icon {
+  width: 50px;
+  height: auto;
+} 
+   
+.logo-footer {
+  width: 250px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+footer {
+  background-color: var(--color-dark);
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-gray);
+  text-align: center;
+}
+
+footer div {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+footer img {
+  max-width: 250px;
+  height: auto;
+  width: auto; /* Mantém a proporção da imagem */
+}
+
+footer h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-secondary);
+}
