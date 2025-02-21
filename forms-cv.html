@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/public/assets/styles/forms-cv.css" />
+  <title>Formulário de Informações Empresariais 2</title>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+      <img src="/public/assets/images/LOGO BSN STRATEGY.png" alt="Logo" class="logo-header" />
+      <nav class="shared-styles">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <form id="businessForm2" onsubmit="handleSubmit(event)" class="form-bordered">
+      <h1>Formulário de Informações Empresariais 2</h1>
+
+      <div>
+        <label for="objetivos">Quais são os principais objetivos e metas a curto, médio e longo prazo?</label>
+        <textarea id="objetivos" name="objetivos" required class="shared-styles"></textarea>
+        <div>Exemplo: Curto Prazo: crescimento rápido e lucratividade; Médio Prazo: retenção dos clientes e aumento do ticket médio; Longo Prazo: expansão para novos mercados</div>
+      </div>
+
+      <div>
+        <label for="dados">Que dados você já está acompanhando e quais ferramentas utiliza?</label>
+        <textarea id="dados" name="dados" required class="shared-styles"></textarea>
+        <div>Exemplo: HubSpot para rastrear conversões de leads</div>
+      </div>
+
+      <div>
+        <label for="desafios">Quais são os maiores desafios ou áreas que você deseja melhorar?</label>
+        <textarea id="desafios" name="desafios" required class="shared-styles"></textarea>
+        <div>Exemplo: Alto custo de aquisição de clientes (CAC alto) que prejudica a margem de lucro</div>
+      </div>
+
+      <div>
+        <label for="estrategias">Quais são suas estratégias e canais atuais de aquisição de clientes?</label>
+        <textarea id="estrategias" name="estrategias" required class="shared-styles"></textarea>
+        <div>Exemplo: Tráfego Pago em Google Ads e Facebook Ads</div>
+      </div>
+
+      <div>
+        <label for="restricoes">Há alguma restrição de recursos (orçamento, equipe, tempo) que devemos considerar ao escolher os KPIs?</label>
+        <textarea id="restricoes" name="restricoes" required class="shared-styles"></textarea>
+        <div>Exemplo: Tenho uma equipe pequena e preciso de métricas fáceis de acompanhar</div>
+      </div>
+
+      <div>
+        <label for="futuro">Onde você imagina o seu negócio daqui 2 ou 3 anos?</label>
+        <textarea id="futuro" name="futuro" required class="shared-styles"></textarea>
+        <div>Exemplo: Expandir para outros estados do Brasil e triplicar o faturamento</div>
+      </div>
+
+      <div>
+        <label for="mudancas">Você tem planos de grandes mudanças ou expansões em breve?</label>
+        <textarea id="mudancas" name="mudancas" required class="shared-styles"></textarea>
+        <div>Exemplo: Estamos migrando para um novo modelo de monetização</div>
+      </div>
+
+      <div>
+        <label for="crm">Você já utiliza alguma ferramenta de CRM? Se sim, qual?</label>
+        <textarea id="crm" name="crm" required class="shared-styles"></textarea>
+        <div>Exemplo: Temos um CRM, mas o acompanhamento ainda é feito manualmente</div>
+      </div>
+
+      <div>
+        <label for="equipes">Quais equipes precisarão acessar o CRM?</label>
+        <textarea id="equipes" name="equipes" required class="shared-styles"></textarea>
+        <div>Exemplo: Vendas, marketing, atendimento, etc.</div>
+      </div>
+
+      <div>
+        <label for="canais_comunicacao">Quais são os principais canais de comunicação com seus clientes?</label>
+        <textarea id="canais_comunicacao" name="canais_comunicacao" required class="shared-styles"></textarea>
+        <div>Exemplo: Telefone, WhatsApp, redes sociais, e-mail, etc.</div>
+      </div>
+
+      <div>
+        <label for="prioridade_canais">Quais canais de comunicação você deseja priorizar?</label>
+        <textarea id="prioridade_canais" name="prioridade_canais" required class="shared-styles"></textarea>
+        <div>Exemplo: Queremos um mix de cold email, mensagens no Instagram e ligações, priorizando o disparo de email</div>
+      </div>
+
+      <div>
+        <label for="tom_comunicacao">Qual o Tom de comunicação você deseja abordar nesses canais?</label>
+        <textarea id="tom_comunicacao" name="tom_comunicacao" required class="shared-styles"></textarea>
+        <div>Exemplo: Buscamos um tom consultivo e direto, mas sem parecer robótico. Queremos ser objetivos, mas amigáveis</div>
+      </div>
+
+      <div>
+        <label for="fluxo_atendimento">Existe algum fluxo de atendimento ao cliente definido?</label>
+        <textarea id="fluxo_atendimento" name="fluxo_atendimento" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="preco_concorrentes">Quanto seus concorrentes cobram no mesmo produto e serviço que o seu? Mais caro ou barato?</label>
+        <textarea id="preco_concorrentes" name="preco_concorrentes" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="decisao_compra">Como seus clientes costumam tomar a decisão de compra?</label>
+        <textarea id="decisao_compra" name="decisao_compra" required class="shared-styles"></textarea>
+        <div>Exemplo: Por preço, qualidade, marca, indicação, etc.</div>
+      </div>
+
+      <div>
+        <label for="sensibilidade_preco">Seu mercado é mais sensível a preço ou valor?</label>
+        <textarea id="sensibilidade_preco" name="sensibilidade_preco" required class="shared-styles"></textarea>
+        <div>Exemplo: Os clientes procuram o mais barato ou pagam mais por algo melhor?</div>
+      </div>
+
+      <div>
+        <label for="frequencia_compra">Seus clientes compram apenas uma vez ou voltam com frequência?</label>
+        <textarea id="frequencia_compra" name="frequencia_compra" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="faturamento">Quanto você quer faturar por mês/ano?</label>
+        <textarea id="faturamento" name="faturamento" required class="shared-styles"></textarea>
+        <div>Exemplo: quero estar faturando em média R$100 mil por mês em até 2 anos</div>
+      </div>
+
+      <div>
+        <label for="vendas_meta">Quantas vendas você precisa para atingir essa meta?</label>
+        <textarea id="vendas_meta" name="vendas_meta" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="integracao_crm">Você utiliza alguma ferramenta que precisa integrar ao CRM?</label>
+        <textarea id="integracao_crm" name="integracao_crm" required class="shared-styles"></textarea>
+        <div>Exemplo: E-commerce, ferramentas de marketing, ERP, etc.</div>
+      </div>
+
+      <div>
+        <label for="preferencia_crm">Você tem alguma preferência entre um CRM na nuvem (SaaS) ou um sistema local?</label>
+        <textarea id="preferencia_crm" name="preferencia_crm" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="objetivos_crm">Quais são os principais objetivos ao implementar o CRM?</label>
+        <textarea id="objetivos_crm" name="objetivos_crm" required class="shared-styles"></textarea>
+        <div>Exemplo: Aumentar vendas, melhorar atendimento, reduzir churn, etc.</div>
+      </div>
+
+      <div>
+        <label for="conhecimento_crm">Sua equipe tem conhecimento para gerenciar um CRM ou precisará de treinamento?</label>
+        <textarea id="conhecimento_crm" name="conhecimento_crm" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="orcamento_crm">Qual é o orçamento disponível para o CRM?</label>
+        <textarea id="orcamento_crm" name="orcamento_crm" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="suporte_crm">Você precisa de suporte técnico contínuo ou apenas na implementação do CRM?</label>
+        <textarea id="suporte_crm" name="suporte_crm" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="funil_vendas">Você prefere um funil de vendas para lançamento, perpétuo, tripwire, webinar, perpétuo, físico ou outro?</label>
+        <textarea id="funil_vendas" name="funil_vendas" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="ticket_venda">Sua venda é de ticket baixo, médio ou alto?</label>
+        <textarea id="ticket_venda" name="ticket_venda" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="upsells">Você já tem ou quer trabalhar com upsells, downsells ou cross-sells? Se sim, quais?</label>
+        <textarea id="upsells" name="upsells" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="programa_afiliados">Você já tem ou quer integrar um programa de afiliados?</label>
+        <textarea id="programa_afiliados" name="programa_afiliados" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="orcamento_trafego">Você tem orçamento para tráfego pago? Se sim, quanto por mês?</label>
+        <textarea id="orcamento_trafego" name="orcamento_trafego" required class="shared-styles"></textarea>
+        <div>Exemplo: facebook ads R$ 2.000, google ads R$ 1.000</div>
+      </div>
+
+      <div>
+        <label for="programa_fidelidade">Tem algum programa de fidelidade ou recompra?</label>
+        <textarea id="programa_fidelidade" name="programa_fidelidade" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="engajamento">Como você mantém os clientes engajados após a compra?</label>
+        <textarea id="engajamento" name="engajamento" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="estrategias_eventos">Você já tem ou deseja criar estratégias como eventos, feiras ou networking?</label>
+        <textarea id="estrategias_eventos" name="estrategias_eventos" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="loja_fisica">Você já tem ou deseja criar uma loja física ou atendimento presencial?</label>
+        <textarea id="loja_fisica" name="loja_fisica" required class="shared-styles"></textarea>
+      </div>
+
+      <div>
+        <label for="offline">Como os clientes chegam até você no mundo offline? (caso tenha negócio físico)</label>
+        <textarea id="offline" name="offline" required class="shared-styles"></textarea>
+      </div>
+
+      <center>
+        <button type="submit">Enviar Formulário</button>
+      </center>
+    </form>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div>
+      <div>
+        <img src="/public/assets/images/LOGO BSN STRATEGY.png" alt="Footer Logo" class="logo-footer" />
+      </div>
+      <div>
+        <div>
+          <h3>Contato</h3>
+          <p>Email: contato@empresa.com</p>
+          <p>Tel: (11) 1234-5678</p>
+        </div>
+        <div>
+          <h3>Redes Sociais</h3>
+          <div>
+            <a href="#" class="social-link"><img src="/public/assets/images/linkedin-icon.png" alt="LinkedIn" class="icon" /></a>
+            <a href="#" class="social-link"><img src="/public/assets/images/instagram-icon.png" alt="Instagram" class="icon" /></a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>&copy; 2025 Sua Empresa. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { supabase } from './src/supabase.js';
+
+    window.handleSubmit = async (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+
+      // Create data object
+      const data = {
+        objetivos: formData.get('objetivos'),
+        dados: formData.get('dados'),
+        desafios: formData.get('desafios'),
+        estrategias: formData.get('estrategias'),
+        restricoes: formData.get('restricoes'),
+        futuro: formData.get('futuro'),
+        mudancas: formData.get('mudancas'),
+        crm: formData.get('crm'),
+        equipes: formData.get('equipes'),
+        canais_comunicacao: formData.get('canais_comunicacao'),
+        prioridade_canais: formData.get('prioridade_canais'),
+        tom_comunicacao: formData.get('tom_comunicacao'),
+        fluxo_atendimento: formData.get('fluxo_atendimento'),
+        preco_concorrentes: formData.get('preco_concorrentes'),
+        decisao_compra: formData.get('decisao_compra'),
+        sensibilidade_preco: formData.get('sensibilidade_preco'),
+        frequencia_compra: formData.get('frequencia_compra'),
+        faturamento: formData.get('faturamento'),
+        vendas_meta: formData.get('vendas_meta'),
+        integracao_crm: formData.get('integracao_crm'),
+        preferencia_crm: formData.get('preferencia_crm'),
+        objetivos_crm: formData.get('objetivos_crm'),
+        conhecimento_crm: formData.get('conhecimento_crm'),
+        orcamento_crm: formData.get('orcamento_crm'),
+        suporte_crm: formData.get('suporte_crm'),
+        funil_vendas: formData.get('funil_vendas'),
+        ticket_venda: formData.get('ticket_venda'),
+        upsells: formData.get('upsells'),
+        programa_afiliados: formData.get('programa_afiliados'),
+        orcamento_trafego: formData.get('orcamento_trafego'),
+        programa_fidelidade: formData.get('programa_fidelidade'),
+        engajamento: formData.get('engajamento'),
+        estrategias_eventos: formData.get('estrategias_eventos'),
+        loja_fisica: formData.get('loja_fisica'),
+        offline: formData.get('offline'),
+      };
+
+      try {
+        const { error } = await supabase.from('business_info').insert([data]);
+
+        if (error) throw error;
+
+        showAlert('Formulário enviado com sucesso!', 'success');
+        form.reset();
+      } catch (error) {
+        console.error('Error:', error);
+        showAlert(
+          'Erro ao enviar formulário. Por favor, tente novamente.',
+          'error'
+        );
+      }
+    };
+
+    function showAlert(message, type) {
+      const alert = document.getElementById('alert');
+      alert.textContent = message;
+      alert.className = `alert alert-${type}`;
+      alert.classList.remove('hidden');
+
+      setTimeout(() => {
+        alert.classList.add('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+
+</html>
