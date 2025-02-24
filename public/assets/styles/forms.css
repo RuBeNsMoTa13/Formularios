@@ -1,47 +1,9 @@
-/* ==========================================================================
-   Base Styles and Variables
-   ========================================================================== */
-
-/* Font imports */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
-
-/* Custom properties */
 :root {
-  /* Color Palette */
-  --color-primary: #0052cc; /* Azul Tech - Main brand color */
-  --color-secondary: #00b894; /* Verde Estratégico - Accent color */
-  --color-dark: #1d1d25; /* Azul Profundo - Dark backgrounds */
-  --color-gray: #a1a1a1; /* Cinza Balanceado - Text and borders */
-
-  /* Typography */
-  --font-primary: 'Montserrat', sans-serif; /* Headers and important text */
-  --font-secondary: 'Open Sans', sans-serif; /* Body text and forms */
-
-  /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
-
-  /* Container widths */
-  --container-width: 8000px;
-  --form-width: 800px;
+  --form-width: 50%;
 }
 
-/* ==========================================================================
-   Reset and Base Styles
-   ========================================================================== */
 
-
-
-
-
-
-
-
-
-button,button::after {
+button {
   padding: 10px 50px;
   font-size: 20px;
   border: none;
@@ -51,99 +13,11 @@ button,button::after {
   position: relative;
 }
 
-button::after {
-  --move1: inset(50% 50% 50% 50%);
-  --move2: inset(31% 0 40% 0);
-  --move3: inset(39% 0 15% 0);
-  --move4: inset(45% 0 40% 0);
-  --move5: inset(45% 0 6% 0);
-  --move6: inset(14% 0 61% 0);
-  clip-path: var(--move1);
-  content: 'GLITCH';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-}
-
-button:hover::after {
-  animation: glitch_4011 1s;
-  text-shadow: 10 10px 10px black;
-  animation-timing-function: steps(2, end);
-  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
-  background-color: transparent;
-  border: 3px solid rgb(0, 255, 213);
-}
-
-button:hover {
-  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
-}
-
 button:hover {
   background-color: transparent;
   border: 1px solid rgb(0, 255, 213);
   box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
 }
-
-@keyframes glitch_4011 {
-  0% {
-    clip-path: var(--move1);
-    transform: translate(0px,-10px);
-  }
-
-  10% {
-    clip-path: var(--move2);
-    transform: translate(-10px,10px);
-  }
-
-  20% {
-    clip-path: var(--move3);
-    transform: translate(10px,0px);
-  }
-
-  30% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  40% {
-    clip-path: var(--move5);
-    transform: translate(10px,-10px);
-  }
-
-  50% {
-    clip-path: var(--move6);
-    transform: translate(-10px,10px);
-  }
-
-  60% {
-    clip-path: var(--move1);
-    transform: translate(10px,-10px);
-  }
-
-  70% {
-    clip-path: var(--move3);
-    transform: translate(-10px,10px);
-  }
-
-  80% {
-    clip-path: var(--move2);
-    transform: translate(10px,-10px);
-  }
-
-  90% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  100% {
-    clip-path: var(--move1);
-    transform: translate(0);
-  }
-}
-
 
 /* ==========================================================================
    Main Content Styles
@@ -153,29 +27,38 @@ button:hover {
 form {
   background-color: var(--color-dark);
   padding: var(--spacing-xl);
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 form div {
   margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 label {
-  display: block;
   margin-bottom: var(--spacing-sm);
-  font-weight: 600;
+  font-weight: bold;
   color: var(--color-secondary);
+  display: inline-block;
+}
+
+
+
+input[type='radio'] {
+  margin-right: var(--spacing-sm);
+  display: inline-block;
+  align-items: center;
 }
 
 input[type='text'],
 input[type='url'],
 textarea,
 select {
-  width: 100%;
+  width: 90%;
   padding: var(--spacing-md);
   border: 2px solid var(--color-gray);
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: var(--color-dark);
   color: white;
   font-family: var(--font-secondary);
@@ -189,17 +72,9 @@ select:focus {
   border-color: var(--color-primary);
 }
 
-input[type='radio'],
-input[type='checkbox'] {
-  margin-right: var(--spacing-xs);
-}
 
-.hint {
-  color: var(--color-gray);
-  font-size: 0.9em;
-  margin-top: var(--spacing-xs);
-  font-style: italic;
-}
+
+
 
 button {
   background-color: var(--color-primary);
@@ -227,7 +102,7 @@ button:hover {
 }
 
 .alert-error {
-  background-color: #ff4757;
+  background-color: #c20414;
 }
 
 .hidden {
@@ -236,107 +111,10 @@ button:hover {
 
 
 
-/* Propriedades compartilhadas para button e nav */
-.shared-styles {
-  padding: 10px 50px;
-  font-size: 20px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  background-color: transparent;
-  position: relative;
-}
+/*  efeito neon dos inputs e botao */
 
-.shared-styles::after {
-  --move1: inset(50% 50% 50% 50%);
-  --move2: inset(31% 0 40% 0);
-  --move3: inset(39% 0 15% 0);
-  --move4: inset(45% 0 40% 0);
-  --move5: inset(45% 0 6% 0);
-  --move6: inset(14% 0 61% 0);
-  clip-path: var(--move1);
-  content: 'GLITCH';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-}
-
-.shared-styles:hover::after {
-  text-shadow: 10 10px 10px black;
-  animation-timing-function: steps(2, end);
-  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
-  background-color: transparent;
-  border: 3px solid rgb(0, 255, 213);
-}
-
-.shared-styles:hover {
-  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+.neon:hover {
   background-color: transparent;
   border: 1px solid rgb(0, 255, 213);
   box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
-}
-
-nav.shared-styles:hover {
-  border: none;
-  box-shadow: none;
-}
-
-@keyframes glitch_4011 {
-  0% {
-    clip-path: var(--move1);
-    transform: translate(0px,-10px);
-  }
-
-  10% {
-    clip-path: var(--move2);
-    transform: translate(-10px,10px);
-  }
-
-  20% {
-    clip-path: var(--move3);
-    transform: translate(10px,0px);
-  }
-
-  30% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  40% {
-    clip-path: var(--move5);
-    transform: translate(10px,-10px);
-  }
-
-  50% {
-    clip-path: var(--move6);
-    transform: translate(-10px,10px);
-  }
-
-  60% {
-    clip-path: var(--move1);
-    transform: translate(10px,-10px);
-  }
-
-  70% {
-    clip-path: var(--move3);
-    transform: translate(-10px,10px);
-  }
-
-  80% {
-    clip-path: var(--move2);
-    transform: translate(10px,-10px);
-  }
-
-  90% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  100% {
-    clip-path: var(--move1);
-    transform: translate(0);
-  }
 }

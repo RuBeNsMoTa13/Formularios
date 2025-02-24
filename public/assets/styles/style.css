@@ -31,8 +31,7 @@
   --spacing-xl: 32px;
 
   /* Container widths */
-  --container-width: 800px;
-  --form-width: 800px;
+  --container-width: 100%;
 }
 
 /* ==========================================================================
