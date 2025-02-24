@@ -8,14 +8,20 @@
 /* Custom properties */
 :root {
   /* Color Palette */
-  --color-primary: #0052cc; /* Azul Tech - Main brand color */
-  --color-secondary: #00b894; /* Verde Estratégico - Accent color */
-  --color-dark: #1d1d25; /* Azul Profundo - Dark backgrounds */
-  --color-gray: #a1a1a1; /* Cinza Balanceado - Text and borders */
+  --color-primary: #0052cc;
+  /* Azul Tech - Main brand color */
+  --color-secondary: #00b894;
+  /* Verde Estratégico - Accent color */
+  --color-dark: #1d1d25;
+  /* Azul Profundo - Dark backgrounds */
+  --color-gray: #a1a1a1;
+  /* Cinza Balanceado - Text and borders */
 
   /* Typography */
-  --font-primary: 'Montserrat', sans-serif; /* Headers and important text */
-  --font-secondary: 'Open Sans', sans-serif; /* Body text and forms */
+  --font-primary: 'Montserrat', sans-serif;
+  /* Headers and important text */
+  --font-secondary: 'Open Sans', sans-serif;
+  /* Body text and forms */
 
   /* Spacing */
   --spacing-xs: 4px;
@@ -46,10 +52,12 @@ body {
    Header Styles
    ========================================================================== */
 
+
 .logo-header {
   max-width: 200px;
   height: auto;
-  width: auto; /* Mantém a proporção da imagem */
+  width: auto;
+  /* Mantém a proporção da imagem */
 }
 
 header {
@@ -66,11 +74,6 @@ header div {
   align-items: center;
 }
 
-header img {
-  max-width: 250px;
-  height: auto;
-  width: auto; /* Mantém a proporção da imagem */
-}
 
 header nav ul {
   list-style: none;
@@ -101,6 +104,7 @@ main {
   padding: 0 var(--spacing-md);
 }
 
+/* setas do lado */
 .carousel-container {
   position: relative;
   overflow: hidden;
@@ -117,14 +121,9 @@ main {
   padding: var(--spacing-lg);
 }
 
-.carousel::-webkit-scrollbar {
-  display: none;
-}
 
-.carousel {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
+
+
 
 .card {
   background-color: var(--color-dark);
@@ -182,7 +181,6 @@ main {
 .pause-container {
   display: flex;
   justify-content: center;
-  margin-top: var(--spacing-lg);
 }
 
 .carousel-button.pause {
@@ -197,13 +195,10 @@ main {
    ========================================================================== */
 
 
-.icon {
-  width: 50px;
-  height: auto;
-} 
-   
+
+
 .logo-footer {
-  width: 250px;
+  width: 200px;
   height: auto;
   margin: 0 auto;
   display: block;
@@ -217,32 +212,16 @@ footer {
   text-align: center;
 }
 
-footer div {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
 
-footer img {
-  max-width: 250px;
+.social-links {
+  max-width: 20px;
   height: auto;
-  width: auto; /* Mantém a proporção da imagem */
+  width: auto;
+  /* Mantém a proporção da imagem */
 }
 
-footer h3 {
-  margin-bottom: var(--spacing-sm);
-}
 
-footer p {
-  margin: 0;
-}
 
-footer a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
 
-footer a:hover {
-  color: var(--color-secondary);
-}
+
+

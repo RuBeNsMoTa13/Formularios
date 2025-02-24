@@ -25,7 +25,7 @@
   --spacing-xl: 32px;
 
   /* Container widths */
-  --container-width: 800px;
+  --container-width: 8000px;
   --form-width: 800px;
 }
 
@@ -33,81 +33,14 @@
    Reset and Base Styles
    ========================================================================== */
 
-   /* From Uiverse.io by adamgiebl */ 
-/* From Uiverse.io by SelfMadeSystem */ 
-/*
-More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
- */
-
-
-
-   
-body {
-  font-family: var(--font-primary);
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-dark);
-  color: white;
-  line-height: 1.6;
-  
-}
-
-/* ==========================================================================
-   Header Styles
-   ========================================================================== */
-
-.logo-header {
-  max-width: 200px;
-  height: auto;
-  width: auto; /* Mantém a proporção da imagem */
-}
-
-header {
-  background-color: var(--color-dark);
-  border-bottom: 1px solid var(--color-gray);
-  
-}
-
-header div {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header img {
-  max-width: 250px;
-  height: auto;
-  width: auto; /* Mantém a proporção da imagem */
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: var(--spacing-lg);
-  margin: 0;
-  padding: 0;
-}
-
-header nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  
-}
-
-header nav a:hover {
-  color: var(--color-secondary);
-}
 
 
 
 
 
-/* From Uiverse.io by 212004ALJI */ 
+
+
+
 button,button::after {
   padding: 10px 50px;
   font-size: 20px;
@@ -216,11 +149,6 @@ button:hover {
    Main Content Styles
    ========================================================================== */
 
-main {
-  max-width: var(--form-width);
-  margin: var(--spacing-xl) auto;
-  padding: 0 var(--spacing-md);
-}
 
 form {
   background-color: var(--color-dark);
@@ -306,59 +234,7 @@ button:hover {
   display: none;
 }
 
-/* ==========================================================================
-   Footer Styles
-   ========================================================================== */
 
-.icon {
-  width: 50px;
-  height: auto;
-} 
-
-.logo-footer {
-  width: 250px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-}
-
-footer {
-  background-color: var(--color-dark);
-  padding: var(--spacing-xl) 0;
-  margin-top: var(--spacing-xl);
-  border-top: 1px solid var(--color-gray);
-  text-align: center;
-}
-
-footer div {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-footer img {
-  max-width: 250px;
-  height: auto;
-  width: auto; /* Mantém a proporção da imagem */
-}
-
-footer h3 {
-  margin-bottom: var(--spacing-sm);
-}
-
-footer p {
-  margin: 0;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: var(--color-secondary);
-}
 
 /* Propriedades compartilhadas para button e nav */
 .shared-styles {
