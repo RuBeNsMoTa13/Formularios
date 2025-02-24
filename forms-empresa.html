@@ -447,13 +447,13 @@
       const form = event.target;
       const formData = new FormData(form);
 
-      /* Get all radio values for modelo_negocio
+      // criar banco de dados
       const modeloNegocio = [];
       document
         .querySelectorAll('input[name="modelo_negocio[]"]:checked')
-        .forEach((radio) => {
-          modeloNegocio.push(radio.value);
-        }); */
+        .forEach((checkbox) => {
+          modeloNegocio.push(checkbox.value);
+        });
 
       // Create data object
       const data = {
