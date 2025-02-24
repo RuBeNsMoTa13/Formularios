@@ -21,8 +21,6 @@
     <form id="businessForm" onsubmit="handleSubmit(event)" class="form-bordered">
       <h1>Formulário de Informações Empresariais</h1>
 
-      <h3>Formulário de Informações Empresariais</h3>
-
       <div>
         <label for="empresa">Nome da empresa/projeto</label>
         <input type="text" id="empresa" name="empresa" required class="neon" />
@@ -97,6 +95,7 @@
         <input type="url" id="site" name="site" class="neon" />
       </div>
 
+
       <div>
         <label for="redes">Redes Sociais</label>
         <input type="text" id="redes" name="redes" class="neon" />
@@ -105,7 +104,7 @@
 
       <div>
         <label for="logotipo">Sua marca já possui um logotipo? Se sim, faça o upload:</label>
-        <input type="file" id="logotipo" name="logotipo" accept="image/*" class="neon" />
+        <input type="file" id="logotipo" name="logotipo" accept="image/*" />
       </div>
 
       <div>
@@ -292,13 +291,13 @@
       <div>
         <label>Qual é o seu modelo de negócio?</label>
         <div>
-          <input type="radio" id="venda_direta" name="modelo_negocio[]" value="venda_direta" class="neon" />
-          <p for="venda_direta">Venda Direta</p><br />
-          <input type="radio" id="assinatura" name="modelo_negocio[]" value="assinatura" class="neon" />
-          <p for="assinatura">Assinatura</p><br />
-          <input type="radio" id="marketplace" name="modelo_negocio[]" value="marketplace" class="neon" />
-          <p for="marketplace">Marketplace</p><br />
-          <input type="radio" id="freemium" name="modelo_negocio[]" value="freemium" class="neon" />
+          <input type="checkbox" id="venda_direta" name="modelo_negocio[]" value="venda_direta" class="neon" />
+          <p for="venda_direta">Venda Direta</p>
+          <input type="checkbox" id="assinatura" name="modelo_negocio[]" value="assinatura" class="neon" />
+          <p for="assinatura">Assinatura</p>
+          <input type="checkbox" id="marketplace" name="modelo_negocio[]" value="marketplace" class="neon" />
+          <p for="marketplace">Marketplace</p>
+          <input type="checkbox" id="freemium" name="modelo_negocio[]" value="freemium" class="neon" />
           <p for="freemium">Freemium</p>
         </div>
       </div>
@@ -439,6 +438,7 @@
   <script src="/public/assets/scripts/footer.js"></script>
 
 
+  <script type="module"></script>
   <script type="module">
     import { supabase } from './src/supabase.js';
 
