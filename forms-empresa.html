@@ -52,16 +52,6 @@
       </div>
 
       <div>
-        <label for="estado">Estado</label>
-        <select id="estado" name="estado" ></select>
-      </div>
-
-      <div>
-        <label for="cidade">Cidade</label>
-        <select id="cidade" name="cidade" ></select>
-      </div>
-
-      <div>
         <label for="marca">Nome da Marca</label>
         <input type="text" id="marca" name="marca" required class="neon" />
       </div>
@@ -452,68 +442,12 @@
   <script type="module">
     import { supabase } from './src/supabase.js';
 
-    // Função para preencher os estados
-    async function fetchEstados() {
-      const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
-      const estados = await response.json();
-      const estadoSelect = document.getElementById('estado');
-      estados.sort((a, b) => a.nome.localeCompare(b.nome));
-      estados.forEach(estado => {
-        const option = document.createElement('option');
-        option.value = estado.id;
-        option.textContent = estado.nome;
-        estadoSelect.appendChild(option);
-      });
-    }
-
-    // Função para preencher as cidades com base no estado selecionado
-    async function fetchCidades(estadoId) {
-      const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoId}/municipios`);
-      const cidades = await response.json();
-      const cidadeSelect = document.getElementById('cidade');
-      cidadeSelect.innerHTML = ''; // Limpa as opções anteriores
-      cidades.sort((a, b) => a.nome.localeCompare(b.nome));
-      cidades.forEach(cidade => {
-        const option = document.createElement('option');
-        option.value = cidade.nome;
-        option.textContent = cidade.nome;
-        cidadeSelect.appendChild(option);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      fetchEstados();
-
-      const estadoSelect = document.getElementById('estado');
-      estadoSelect.addEventListener('change', (event) => {
-        const estadoId = event.target.value;
-        fetchCidades(estadoId);
-      });
-    });
-
     window.handleSubmit = async (event) => {
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
 
-      // Upload logo file if exists
-      let logoUrl = '';
-      const logoFile = formData.get('logotipo');
-      if (logoFile && logoFile.size > 0) {
-        const { data, error } = await supabase.storage
-          .from('logos')
-          .upload(`public/${logoFile.name}`, logoFile);
-
-        if (error) {
-          console.error('Error uploading logo:', error);
-          showAlert('Erro ao enviar logotipo. Por favor, tente novamente.', 'error');
-          return;
-        }
-
-        logoUrl = data.Key;
-      }
-
-      // Get all checkbox values for modelo_negocio
+      // criar banco de dados
       const modeloNegocio = [];
       document
         .querySelectorAll('input[name="modelo_negocio[]"]:checked')
@@ -527,7 +461,7 @@
         setor: formData.get('setor'),
         nicho: formData.get('nicho'),
         departamento: formData.get('departamento'),
-        localizacao: `${formData.get('cidade')}, ${formData.get('estado')}`,
+        localizacao: formData.get('localizacao'),
         marca: formData.get('marca'),
         slogan: formData.get('slogan'),
         fundadores: formData.get('fundadores'),
@@ -536,7 +470,7 @@
         sede: formData.get('sede'),
         site: formData.get('site'),
         redes_sociais: formData.get('redes'),
-        logotipo: logoUrl,
+        logotipo: formData.get('logotipo'),
         cores: formData.get('cores'),
         estilo_visual: formData.get('estilo'),
         sugestoes_identidade: formData.get('sugestoes'),

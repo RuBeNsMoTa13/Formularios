@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS business_info (
   nicho text NOT NULL,
   departamento text,
   localizacao text NOT NULL,
+  estado text NOT NULL,
+  cidade text NOT NULL,
   marca text NOT NULL,
   slogan text,
   fundadores text NOT NULL,
