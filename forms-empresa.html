@@ -445,7 +445,7 @@
     const supabaseKey = 'SUA_CHAVE_ANON_KEY';
     
     // Inicializar cliente Supabase usando a variável global do CDN
-    const supabase = supabaseCreateClient(supabaseUrl, supabaseKey);
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
     
     // Registrar função de envio do formulário quando o documento estiver carregado
     document.addEventListener('DOMContentLoaded', function() {
