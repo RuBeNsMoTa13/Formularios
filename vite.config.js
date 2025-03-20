@@ -11,4 +11,6 @@ export default defineConfig({
       },
     },
   },
+  // Garante que a pasta src seja copiada
+  publicDir: ['public', 'src'],
 });
