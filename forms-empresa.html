@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/public/assets/styles/style.css" />
-  <link rel="stylesheet" href="/public/assets/styles/forms.css" />
+  <link rel="stylesheet" href="/assets/styles/style.css" />
+  <link rel="stylesheet" href="/assets/styles/forms.css" />
 
   <title>Formulário de Informações Empresariais</title>
 </head>
 
 <body>
   <!-- Header Section -->
-  <script src="/public/assets/scripts/header.js"></script>
+  <script src="/assets/scripts/header.js"></script>
 
 
   <!-- Main Content -->
   <main>
     <div id="alert" class="hidden"></div>
-    <form id="businessForm" onsubmit="handleSubmit(event)" class="form-bordered">
+    <form id="businessForm" class="form-bordered">
       <h1>Formulário de Informações Empresariais</h1>
 
       <div>
@@ -434,113 +434,151 @@
   </main>
 
   <!-- Footer Section -->
+  <script src="/assets/scripts/footer.js"></script>
 
-  <script src="/public/assets/scripts/footer.js"></script>
+  <!-- Carregando o Supabase direto via CDN para garantir disponibilidade -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
-  <script type="module"></script>
-  <script type="module">
-    import { supabase } from './src/supabase.js';
-
-    window.handleSubmit = async (event) => {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-
-      // criar banco de dados
-      const modeloNegocio = [];
-      document
-        .querySelectorAll('input[name="modelo_negocio[]"]:checked')
-        .forEach((checkbox) => {
-          modeloNegocio.push(checkbox.value);
+  <script>
+    // Configuração do Supabase - substitua com suas credenciais reais
+    const supabaseUrl = 'SUA_URL_SUPABASE';
+    const supabaseKey = 'SUA_CHAVE_ANON_KEY';
+    
+    // Inicializar cliente Supabase usando a variável global do CDN
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    
+    // Registrar função de envio do formulário quando o documento estiver carregado
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("Documento carregado, inicializando formulário...");
+      
+      // Capturar o formulário
+      const form = document.getElementById('businessForm');
+      console.log("Formulário encontrado:", !!form);
+      
+      // Adicionar event listener para submit
+      if (form) {
+        form.addEventListener('submit', async function(event) {
+          event.preventDefault();
+          console.log("Formulário enviado, iniciando processamento...");
+          
+          // Mostrar alerta de processamento
+          showAlert('Enviando formulário...', 'info');
+          
+          // Coletar dados do formulário
+          const formData = new FormData(form);
+          
+          // Processar checkbox de modelo de negócio
+          const modeloNegocio = [];
+          document
+            .querySelectorAll('input[name="modelo_negocio[]"]:checked')
+            .forEach((checkbox) => {
+              modeloNegocio.push(checkbox.value);
+            });
+          
+          // Criar objeto de dados
+          const data = {
+            empresa: formData.get('empresa'),
+            setor: formData.get('setor'),
+            nicho: formData.get('nicho'),
+            departamento: formData.get('departamento'),
+            localizacao: formData.get('localizacao'),
+            marca: formData.get('marca'),
+            slogan: formData.get('slogan'),
+            fundadores: formData.get('fundadores'),
+            fundacao: formData.get('fundacao'),
+            estagio: formData.get('estagio'),
+            sede: formData.get('sede'),
+            site: formData.get('site'),
+            redes_sociais: formData.get('redes'),
+            cores: formData.get('cores'),
+            estilo_visual: formData.get('estilo'),
+            sugestoes_identidade: formData.get('sugestoes'),
+            descricao: formData.get('descricao'),
+            ideia: formData.get('ideia'),
+            solucao: formData.get('solucao'),
+            entrega: formData.get('entrega'),
+            receita: formData.get('receita'),
+            parceiros: formData.get('parceiros'),
+            publico_alvo: formData.get('publico'),
+            vendas: formData.get('vendas'),
+            relacionamento_clientes: formData.get('relacionamento'),
+            valores: formData.get('valores'),
+            crenca: formData.get('crenca'),
+            objetivo: formData.get('objetivo'),
+            crencas_clientes: formData.get('crencas_clientes'),
+            gostos_clientes: formData.get('gostos_clientes'),
+            venda_indireta: formData.get('venda_indireta'),
+            valores_clientes: formData.get('valores_clientes'),
+            sensacoes: formData.get('sensacoes'),
+            marcas_admiradas: formData.get('marcas_admiradas'),
+            barreiras: formData.get('barreiras'),
+            impacto: formData.get('impacto'),
+            transformacoes_produto: formData.get('transformacoes_produto'),
+            transformacoes_pessoais: formData.get('transformacoes_pessoais'),
+            modelo_negocio: modeloNegocio,
+            canais: formData.get('canais'),
+            estrategia_digital: formData.get('estrategia_digital'),
+            diferencial: formData.get('diferencial'),
+            concorrentes: formData.get('concorrentes'),
+            concorrentes_melhor: formData.get('concorrentes_melhor'),
+            desafios: formData.get('desafios'),
+            opcoes_compra: formData.get('opcoes_compra'),
+            ciclo_vendas: formData.get('ciclo_vendas'),
+            gargalo: formData.get('gargalo'),
+            descoberta: formData.get('descoberta'),
+            jornada: formData.get('jornada'),
+            melhorias: formData.get('melhorias'),
+            produtos: formData.get('produtos'),
+            diferenciais: formData.get('diferenciais'),
+            tendencias: formData.get('tendencias'),
+            descricao_curta: formData.get('descricao_curta'),
+            palavras_associadas: formData.get('palavras_associadas'),
+            conteudo: formData.get('conteudo'),
+            temas: formData.get('temas'),
+            produtos_definidos: formData.get('produtos_definidos')
+          };
+          
+          console.log("Dados preparados:", data);
+          
+          try {
+            console.log("Iniciando inserção no Supabase...");
+            
+            // Enviar dados para o Supabase
+            const { data: result, error } = await supabase
+              .from('business_info')
+              .insert([data]);
+            
+            console.log("Resposta do Supabase:", { result, error });
+            
+            if (error) {
+              throw error;
+            }
+            
+            showAlert('Formulário enviado com sucesso!', 'success');
+            form.reset();
+          } catch (error) {
+            console.error('Erro completo:', error);
+            showAlert(
+              `Erro ao enviar formulário: ${error.message || "Erro desconhecido"}. Por favor, tente novamente.`,
+              'error'
+            );
+          }
         });
-
-      // Create data object
-      const data = {
-        empresa: formData.get('empresa'),
-        setor: formData.get('setor'),
-        nicho: formData.get('nicho'),
-        departamento: formData.get('departamento'),
-        localizacao: formData.get('localizacao'),
-        marca: formData.get('marca'),
-        slogan: formData.get('slogan'),
-        fundadores: formData.get('fundadores'),
-        fundacao: formData.get('fundacao'),
-        estagio: formData.get('estagio'),
-        sede: formData.get('sede'),
-        site: formData.get('site'),
-        redes_sociais: formData.get('redes'),
-        logotipo: formData.get('logotipo'),
-        cores: formData.get('cores'),
-        estilo_visual: formData.get('estilo'),
-        sugestoes_identidade: formData.get('sugestoes'),
-        descricao: formData.get('descricao'),
-        ideia: formData.get('ideia'),
-        solucao: formData.get('solucao'),
-        entrega: formData.get('entrega'),
-        receita: formData.get('receita'),
-        parceiros: formData.get('parceiros'),
-        publico_alvo: formData.get('publico'),
-        vendas: formData.get('vendas'),
-        relacionamento_clientes: formData.get('relacionamento'),
-        valores: formData.get('valores'),
-        crenca: formData.get('crenca'),
-        objetivo: formData.get('objetivo'),
-        crencas_clientes: formData.get('crencas_clientes'),
-        gostos_clientes: formData.get('gostos_clientes'),
-        venda_indireta: formData.get('venda_indireta'),
-        valores_clientes: formData.get('valores_clientes'),
-        sensacoes: formData.get('sensacoes'),
-        marcas_admiradas: formData.get('marcas_admiradas'),
-        barreiras: formData.get('barreiras'),
-        impacto: formData.get('impacto'),
-        transformacoes_produto: formData.get('transformacoes_produto'),
-        transformacoes_pessoais: formData.get('transformacoes_pessoais'),
-        modelo_negocio: modeloNegocio,
-        canais: formData.get('canais'),
-        estrategia_digital: formData.get('estrategia_digital'),
-        diferencial: formData.get('diferencial'),
-        concorrentes: formData.get('concorrentes'),
-        concorrentes_melhor: formData.get('concorrentes_melhor'),
-        desafios: formData.get('desafios'),
-        opcoes_compra: formData.get('opcoes_compra'),
-        ciclo_vendas: formData.get('ciclo_vendas'),
-        gargalo: formData.get('gargalo'),
-        descoberta: formData.get('descoberta'),
-        jornada: formData.get('jornada'),
-        melhorias: formData.get('melhorias'),
-        produtos: formData.get('produtos'),
-        diferenciais: formData.get('diferenciais'),
-        tendencias: formData.get('tendencias'),
-        descricao_curta: formData.get('descricao_curta'),
-        palavras_associadas: formData.get('palavras_associadas'),
-        conteudo: formData.get('conteudo'),
-        temas: formData.get('temas'),
-        produtos_definidos: formData.get('produtos_definidos'),
-      };
-
-      try {
-        const { error } = await supabase.from('business_info').insert([data]);
-
-        if (error) throw error;
-
-        showAlert('Formulário enviado com sucesso!', 'success');
-        form.reset();
-      } catch (error) {
-        console.error('Error:', error);
-        showAlert(
-          'Erro ao enviar formulário. Por favor, tente novamente.',
-          'error'
-        );
       }
-    };
-
+    });
+    
+    // Função para mostrar alertas
     function showAlert(message, type) {
       const alert = document.getElementById('alert');
+      if (!alert) {
+        console.error("Elemento de alerta não encontrado!");
+        return;
+      }
+      
       alert.textContent = message;
       alert.className = `alert alert-${type}`;
       alert.classList.remove('hidden');
-
+      
       setTimeout(() => {
         alert.classList.add('hidden');
       }, 5000);
