@@ -14,7 +14,6 @@
   <!-- Header Section -->
   <script src="/assets/scripts/header.js"></script>
 
-
   <!-- Main Content -->
   <main>
     <div id="alert" class="hidden"></div>
@@ -474,6 +473,36 @@
             .forEach((checkbox) => {
               modeloNegocio.push(checkbox.value);
             });
+
+          // Upload da imagem do logotipo
+          const logotipoFile = formData.get('logotipo');
+          let logotipoUrl = '';
+          if (logotipoFile) {
+            try {
+              const { data: uploadData, error: uploadError } = await supabase.storage
+                .from('logotipos')
+                .upload(`public/${logotipoFile.name}`, logotipoFile);
+
+              if (uploadError) {
+                throw uploadError;
+              }
+
+              // Obter a URL pública da imagem
+              const { data: publicURLData, error: publicUrlError } = supabase.storage
+                .from('logotipos')
+                .getPublicUrl(`public/${logotipoFile.name}`);
+
+              if (publicUrlError) {
+                throw publicUrlError;
+              }
+
+              logotipoUrl = publicURLData.publicUrl;
+            } catch (error) {
+              console.error('Erro ao fazer upload do logotipo:', error);
+              showAlert(`Erro ao fazer upload do logotipo: ${error.message || "Erro desconhecido"}. Por favor, tente novamente.`, 'error');
+              return;
+            }
+          }
           
           // Criar objeto de dados
           const data = {
@@ -535,7 +564,8 @@
             palavras_associadas: formData.get('palavras_associadas'),
             conteudo: formData.get('conteudo'),
             temas: formData.get('temas'),
-            produtos_definidos: formData.get('produtos_definidos')
+            produtos_definidos: formData.get('produtos_definidos'),
+            logotipo: logotipoUrl // Adicionar URL do logotipo
           };
           
           console.log("Dados preparados:", data);
