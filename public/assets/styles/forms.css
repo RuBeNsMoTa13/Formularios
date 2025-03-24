@@ -2,7 +2,6 @@
   --form-width: 80%;
 }
 
-
 button {
   padding: 10px 50px;
   font-size: 20px;
@@ -23,7 +22,6 @@ button:hover {
    Main Content Styles
    ========================================================================== */
 
-
 form {
   background-color: var(--color-dark);
   padding: var(--spacing-xl);
@@ -40,10 +38,8 @@ label {
   margin-bottom: var(--spacing-sm);
   font-weight: bold;
   color: var(--color-secondary);
-  display:block;
+  display: block;
 }
-
-
 
 input[type='radio'] {
   margin-right: var(--spacing-sm);
@@ -64,7 +60,6 @@ select {
   font-family: var(--font-secondary);
   transition: border-color 0.3s ease;
   overflow: hidden;
-  
 }
 
 input:focus,
@@ -73,10 +68,6 @@ select:focus {
   outline: none;
   border-color: var(--color-primary);
 }
-
-
-
-
 
 button {
   background-color: var(--color-primary);
@@ -110,8 +101,6 @@ button:hover {
 .hidden {
   display: none;
 }
-
-
 
 /*  efeito neon dos inputs e botao */
 

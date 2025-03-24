@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.createElement('header');
   header.innerHTML = `
     <div class="container">
-      <img src="/public/assets/images/LOGO BSN STRATEGY.png" alt="Logo" class="logo-header" />
+      <img src="/assets/images/LOGO BSN STRATEGY.png" alt="Logo" class="logo-header" />
       <nav>
         <ul>
           <li><a href="/index.html">Home</a></li>
