@@ -445,6 +445,14 @@
     
     // Inicializar cliente Supabase usando a variável global do CDN
     const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+    // Função para gerar UUID
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
     
     // Registrar função de envio do formulário quando o documento estiver carregado
     document.addEventListener('DOMContentLoaded', function() {
@@ -479,9 +487,12 @@
           let logotipoUrl = '';
           if (logotipoFile) {
             try {
+              // Gerar um nome de arquivo único usando UUID
+              const uniqueFileName = `${generateUUID()}-${logotipoFile.name}`;
+              
               const { data: uploadData, error: uploadError } = await supabase.storage
                 .from('logotipos')
-                .upload(`public/${logotipoFile.name}`, logotipoFile);
+                .upload(`public/${uniqueFileName}`, logotipoFile);
 
               if (uploadError) {
                 throw uploadError;
@@ -490,7 +501,7 @@
               // Obter a URL pública da imagem
               const { data: publicURLData, error: publicUrlError } = supabase.storage
                 .from('logotipos')
-                .getPublicUrl(`public/${logotipoFile.name}`);
+                .getPublicUrl(`public/${uniqueFileName}`);
 
               if (publicUrlError) {
                 throw publicUrlError;
@@ -519,6 +530,7 @@
             sede: formData.get('sede'),
             site: formData.get('site'),
             redes_sociais: formData.get('redes'),
+            logotipo: logotipoUrl, // Adicionar URL do logotipo
             cores: formData.get('cores'),
             estilo_visual: formData.get('estilo'),
             sugestoes_identidade: formData.get('sugestoes'),
@@ -564,8 +576,7 @@
             palavras_associadas: formData.get('palavras_associadas'),
             conteudo: formData.get('conteudo'),
             temas: formData.get('temas'),
-            produtos_definidos: formData.get('produtos_definidos'),
-            logotipo: logotipoUrl // Adicionar URL do logotipo
+            produtos_definidos: formData.get('produtos_definidos')
           };
           
           console.log("Dados preparados:", data);
@@ -575,7 +586,7 @@
             
             // Enviar dados para o Supabase
             const { data: result, error } = await supabase
-              .from('business_info')
+              .from('business_form')
               .insert([data]);
             
             console.log("Resposta do Supabase:", { result, error });
