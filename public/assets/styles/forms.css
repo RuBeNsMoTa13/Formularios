@@ -35,15 +35,16 @@ form div {
 }
 
 label {
+  display: inline-block; /* Exibe os rótulos ao lado dos botões de rádio */
   margin-bottom: var(--spacing-sm);
   font-weight: bold;
   color: var(--color-secondary);
-  display: block;
+  margin-right: var(--spacing-lg); /* Espaçamento entre os grupos de rádio */
 }
 
 input[type='radio'] {
   margin-right: var(--spacing-sm);
-  display: block;
+  display: inline-block; /* Exibe os botões de rádio lado a lado */
   align-items: center;
 }
 

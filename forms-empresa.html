@@ -26,21 +26,6 @@
       </div>
 
       <div>
-        <label>Sua marca possui um logotipo?</label>
-        <div>
-          <input type="radio" id="tem_logotipo_sim" name="tem_logotipo" value="sim" required />
-          <label for="tem_logotipo_sim">Sim</label>
-          <input type="radio" id="tem_logotipo_nao" name="tem_logotipo" value="nao" />
-          <label for="tem_logotipo_nao">Não</label>
-        </div>
-      </div>
-
-      <div id="logotipo_upload" style="display: none;">
-        <label for="logotipo">Faça o upload do logotipo:</label>
-        <input type="file" id="logotipo" name="logotipo"   accept="image/*" />
-      </div>
-
-      <div>
         <label for="setor">Setor ou Indústria</label>
         <input type="text" id="setor" name="setor"  class="neon" />
       </div>
@@ -115,6 +100,22 @@
         <input type="text" id="redes" name="redes" class="neon" />
         <div>Exemplo: @MeuNegocio</div>
       </div>
+
+      <div>
+        <label>Sua marca possui um logotipo?</label>
+        <div>
+          <input type="radio" id="tem_logotipo_sim" name="tem_logotipo" value="sim" required />
+          <label for="tem_logotipo_sim">Sim</label>
+          <input type="radio" id="tem_logotipo_nao" name="tem_logotipo" value="nao" />
+          <label for="tem_logotipo_nao">Não</label>
+        </div>
+      </div>
+
+      <div id="logotipo_upload" style="display: none;">
+        <label for="logotipo">Faça o upload do logotipo:</label>
+        <input type="file" id="logotipo" name="logotipo"   accept="image/*" />
+      </div>
+
 
       <div>
         <label for="cores">Quais cores representam sua marca?</label>
@@ -300,13 +301,13 @@
       <div>
         <label>Qual é o seu modelo de negócio?</label>
         <div>
-          <input type="checkbox" id="venda_direta" name="modelo_negocio[]" value="venda_direta" class="neon" />
+          <input type="radio" id="venda_direta" name="modelo_negocio" value="venda_direta" class="neon" />
           <label for="venda_direta">Venda Direta</label>
-          <input type="checkbox" id="assinatura" name="modelo_negocio[]" value="assinatura" class="neon" />
+          <input type="radio" id="assinatura" name="modelo_negocio" value="assinatura" class="neon" />
           <label for="assinatura">Assinatura</label>
-          <input type="checkbox" id="marketplace" name="modelo_negocio[]" value="marketplace" class="neon" />
+          <input type="radio" id="marketplace" name="modelo_negocio" value="marketplace" class="neon" />
           <label for="marketplace">Marketplace</label>
-          <input type="checkbox" id="freemium" name="modelo_negocio[]" value="freemium" class="neon" />
+          <input type="radio" id="freemium" name="modelo_negocio" value="freemium" class="neon" />
           <label for="freemium">Freemium</label>
         </div>
       </div>
