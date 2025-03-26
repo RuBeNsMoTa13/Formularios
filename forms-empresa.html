@@ -16,23 +16,38 @@
 
   <!-- Main Content -->
   <main>
-    <div id="alert" class="hidden"></div>
+    <div id="alert" class="alert hidden"></div>
     <form id="businessForm" class="form-bordered">
       <h1>Formulário de Informações Empresariais</h1>
 
       <div>
         <label for="empresa">Nome da empresa/projeto</label>
-        <input type="text" id="empresa" name="empresa" required class="neon" />
+        <input type="text" id="empresa" name="empresa"  class="neon" />
+      </div>
+
+      <div>
+        <label>Sua marca possui um logotipo?</label>
+        <div>
+          <input type="radio" id="tem_logotipo_sim" name="tem_logotipo" value="sim" required />
+          <label for="tem_logotipo_sim">Sim</label>
+          <input type="radio" id="tem_logotipo_nao" name="tem_logotipo" value="nao" />
+          <label for="tem_logotipo_nao">Não</label>
+        </div>
+      </div>
+
+      <div id="logotipo_upload" style="display: none;">
+        <label for="logotipo">Faça o upload do logotipo:</label>
+        <input type="file" id="logotipo" name="logotipo"   accept="image/*" />
       </div>
 
       <div>
         <label for="setor">Setor ou Indústria</label>
-        <input type="text" id="setor" name="setor" required class="neon" />
+        <input type="text" id="setor" name="setor"  class="neon" />
       </div>
 
       <div>
         <label for="nicho">Nicho de mercado</label>
-        <input type="text" id="nicho" name="nicho" required class="neon" />
+        <input type="text" id="nicho" name="nicho"  class="neon" />
         <div>Exemplo: moda, tecnologia, educação, saúde</div>
       </div>
 
@@ -43,7 +58,7 @@
 
       <div>
         <label for="localizacao">Localização geográfica do mercado de atuação</label>
-        <input type="text" id="localizacao" name="localizacao" required class="neon" />
+        <input type="text" id="localizacao" name="localizacao"  class="neon" />
         <div>
           Exemplo: Municipal - São Paulo/SP /ou/ Estadual - São Paulo e Minas
           Gerais /ou/ América Latina /ou/ Global
@@ -52,7 +67,7 @@
 
       <div>
         <label for="marca">Nome da Marca</label>
-        <input type="text" id="marca" name="marca" required class="neon" />
+        <input type="text" id="marca" name="marca"  class="neon" />
       </div>
 
       <div>
@@ -62,12 +77,12 @@
 
       <div>
         <label for="fundadores">Fundador(es)</label>
-        <input type="text" id="fundadores" name="fundadores" required class="neon" />
+        <input type="text" id="fundadores" name="fundadores"  class="neon" />
       </div>
 
       <div>
         <label for="fundacao">Ano de fundação</label>
-        <input type="text" id="fundacao" name="fundacao" required class="neon" />
+        <input type="text" id="fundacao" name="fundacao"  class="neon" />
         <div>Exemplo: Março de 2010</div>
       </div>
 
@@ -102,11 +117,6 @@
       </div>
 
       <div>
-        <label for="logotipo">Sua marca já possui um logotipo? Se sim, faça o upload:</label>
-        <input type="file" id="logotipo" name="logotipo" accept="image/*" />
-      </div>
-
-      <div>
         <label for="cores">Quais cores representam sua marca?</label>
         <input type="text" id="cores" name="cores" class="neon" />
         <div>
@@ -136,7 +146,7 @@
 
       <div>
         <label for="descricao">Descreva brevemente o que sua empresa/produto faz</label>
-        <textarea id="descricao" name="descricao" required class="neon"></textarea>
+        <textarea id="descricao" name="descricao"  class="neon"></textarea>
         <div>
           Exemplo: Oferecemos soluções de automação para pequenas empresas
         </div>
@@ -144,13 +154,13 @@
 
       <div>
         <label for="ideia">Qual é o seu negócio ou a ideia dele?</label>
-        <textarea id="ideia" name="ideia" required class="neon"></textarea>
+        <textarea id="ideia" name="ideia"  class="neon"></textarea>
         <div>Explique em poucas palavras</div>
       </div>
 
       <div>
         <label for="solucao">Qual a principal solução do seu produto/serviço?</label>
-        <textarea id="solucao" name="solucao" required class="neon"></textarea>
+        <textarea id="solucao" name="solucao"  class="neon"></textarea>
         <div>
           Exemplo: Automatiza processos para economizar tempo
         </div>
@@ -158,7 +168,7 @@
 
       <div>
         <label for="entrega">Como é a entrega do seu produto/serviço?</label>
-        <textarea id="entrega" name="entrega" required class="neon"></textarea>
+        <textarea id="entrega" name="entrega"  class="neon"></textarea>
         <div>
           Exemplo: Venda online, licença SaaS, assinatura mensal
         </div>
@@ -166,7 +176,7 @@
 
       <div>
         <label for="receita">Quais são suas principais fontes de receita?</label>
-        <textarea id="receita" name="receita" required class="neon"></textarea>
+        <textarea id="receita" name="receita"  class="neon"></textarea>
         <div>Exemplo: Venda direta, Assinatura, Publicidade</div>
       </div>
 
@@ -178,7 +188,7 @@
 
       <div>
         <label for="publico">Quem são seus públicos-alvo e avatares?</label>
-        <textarea id="publico" name="publico" required class="neon"></textarea>
+        <textarea id="publico" name="publico"  class="neon"></textarea>
         <div>
           Exemplo: Mães de 30 a 40 anos autônomas que precisam conciliar
           trabalho profissional e maternidade dentro de casa
@@ -187,7 +197,7 @@
 
       <div>
         <label for="vendas">Como faz as vendas?</label>
-        <textarea id="vendas" name="vendas" required class="neon"></textarea>
+        <textarea id="vendas" name="vendas"  class="neon"></textarea>
         <div>
           B2B, B2C, Marketplace, Vendas diretas, Inbound, Outbound,
           Autoatendimento
@@ -196,7 +206,7 @@
 
       <div>
         <label for="relacionamento">Como você se relaciona com os clientes?</label>
-        <textarea id="relacionamento" name="relacionamento" required class="neon"></textarea>
+        <textarea id="relacionamento" name="relacionamento"  class="neon"></textarea>
         <div>
           Exemplo: Atendimento personalizado, suporte automatizado, comunidade
           online
@@ -205,19 +215,19 @@
 
       <div>
         <label for="valores">Quais são seus valores?</label>
-        <textarea id="valores" name="valores" required class="neon"></textarea>
+        <textarea id="valores" name="valores"  class="neon"></textarea>
         <div>Exemplo: Inovação, transparência, humanização</div>
       </div>
 
       <div>
         <label for="crenca">No que você acredita?</label>
-        <textarea id="crenca" name="crenca" required class="neon"></textarea>
+        <textarea id="crenca" name="crenca"  class="neon"></textarea>
         <div>Exemplo: Transformar ideias em resultados</div>
       </div>
 
       <div>
         <label for="objetivo">Qual é o seu objetivo / propósito?</label>
-        <textarea id="objetivo" name="objetivo" required class="neon"></textarea>
+        <textarea id="objetivo" name="objetivo"  class="neon"></textarea>
         <div>
           Exemplo: Democratizar o acesso à tecnologia para pequenos negócios
         </div>
@@ -225,7 +235,7 @@
 
       <div>
         <label for="crencas_clientes">No que seus clientes em potencial acreditam?</label>
-        <textarea id="crencas_clientes" name="crencas_clientes" required class="neon"></textarea>
+        <textarea id="crencas_clientes" name="crencas_clientes"  class="neon"></textarea>
         <div>
           Exemplo: Mudar de vida, ganhar dinheiro fácil, ter uma vida
           abundante
@@ -234,7 +244,7 @@
 
       <div>
         <label for="gostos_clientes">Do que seus clientes em potencial gostam?</label>
-        <textarea id="gostos_clientes" name="gostos_clientes" required class="neon"></textarea>
+        <textarea id="gostos_clientes" name="gostos_clientes"  class="neon"></textarea>
         <div>
           Exemplo: Praticidade, Carro, Viagem, Tecnologia
         </div>
@@ -242,7 +252,7 @@
 
       <div>
         <label for="venda_indireta">O que você vende sem dizer o que você vende?</label>
-        <textarea id="venda_indireta" name="venda_indireta" required class="neon"></textarea>
+        <textarea id="venda_indireta" name="venda_indireta"  class="neon"></textarea>
         <div>
           Exemplo: Facilidade, Inovação, Praticidade, Sonhos
         </div>
@@ -250,7 +260,7 @@
 
       <div>
         <label for="valores_clientes">Quais são os valores e crenças dos seus clientes?</label>
-        <textarea id="valores_clientes" name="valores_clientes" required class="neon"></textarea>
+        <textarea id="valores_clientes" name="valores_clientes"  class="neon"></textarea>
         <div>
           Exemplo: Liberdade financeira, automação, crescimento profissional
         </div>
@@ -258,7 +268,7 @@
 
       <div>
         <label for="sensacoes">Quais sensações você quer que sua marca transmita?</label>
-        <textarea id="sensacoes" name="sensacoes" required class="neon"></textarea>
+        <textarea id="sensacoes" name="sensacoes"  class="neon"></textarea>
         <div>Exemplo: luxo, acessibilidade, inovação</div>
       </div>
 
@@ -274,17 +284,17 @@
 
       <div>
         <label for="impacto">Qual impacto isso gera?</label>
-        <textarea id="impacto" name="impacto" required class="neon"></textarea>
+        <textarea id="impacto" name="impacto"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="transformacoes_produto">Liste as transformações que o seu produto/serviço oferece</label>
-        <textarea id="transformacoes_produto" name="transformacoes_produto" required class="neon"></textarea>
+        <textarea id="transformacoes_produto" name="transformacoes_produto"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="transformacoes_pessoais">Liste as transformações pessoais que o seu produto/serviço oferece</label>
-        <textarea id="transformacoes_pessoais" name="transformacoes_pessoais" required class="neon"></textarea>
+        <textarea id="transformacoes_pessoais" name="transformacoes_pessoais"  class="neon"></textarea>
       </div>
 
       <div>
@@ -303,7 +313,7 @@
 
       <div>
         <label for="canais">Quais canais você usa para gerar leads e vendas?</label>
-        <textarea id="canais" name="canais" required class="neon"></textarea>
+        <textarea id="canais" name="canais"  class="neon"></textarea>
         <div>
           Exemplo: E-commerce, E-mail, LinkedIn, Telefone, Whatsapp, Eventos
         </div>
@@ -312,18 +322,18 @@
       <div>
         <label for="estrategia_digital">Você já tem uma estratégia de presença digital ou quer começar do
           zero?</label>
-        <textarea id="estrategia_digital" name="estrategia_digital" required class="neon"></textarea>
+        <textarea id="estrategia_digital" name="estrategia_digital"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="diferencial">O que torna seu negócio diferente dos concorrentes?</label>
-        <textarea id="diferencial" name="diferencial" required class="neon"></textarea>
+        <textarea id="diferencial" name="diferencial"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="concorrentes">Quem são seus principais concorrentes ou referências no
           mercado?</label>
-        <textarea id="concorrentes" name="concorrentes" required class="neon"></textarea>
+        <textarea id="concorrentes" name="concorrentes"  class="neon"></textarea>
       </div>
 
       <div>
@@ -334,7 +344,7 @@
 
       <div>
         <label for="desafios">Quais são seus principais desafios e oportunidades?</label>
-        <textarea id="desafios" name="desafios" required class="neon"></textarea>
+        <textarea id="desafios" name="desafios"  class="neon"></textarea>
       </div>
 
       <div>
@@ -350,7 +360,7 @@
       <div>
         <label for="ciclo_vendas">Qual é o tempo médio do seu ciclo de vendas, do primeiro contato
           até o fechamento?</label>
-        <input type="text" id="ciclo_vendas" name="ciclo_vendas" required class="neon" />
+        <input type="text" id="ciclo_vendas" name="ciclo_vendas"  class="neon" />
       </div>
 
       <div>
@@ -364,24 +374,24 @@
 
       <div>
         <label for="descoberta">Como um cliente descobre seu negócio hoje?</label>
-        <textarea id="descoberta" name="descoberta" required class="neon"></textarea>
+        <textarea id="descoberta" name="descoberta"  class="neon"></textarea>
         <div>Exemplo: Indicações, redes sociais, anúncios</div>
       </div>
 
       <div>
         <label for="jornada">Quais passos um cliente percorre até comprar algo de você?</label>
-        <textarea id="jornada" name="jornada" required class="neon"></textarea>
+        <textarea id="jornada" name="jornada"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="melhorias">Onde você acha que pode melhorar essa experiência da jornada do seu
           cliente?</label>
-        <textarea id="melhorias" name="melhorias" required class="neon"></textarea>
+        <textarea id="melhorias" name="melhorias"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="produtos">Quais produtos ou serviços sua marca oferece?</label>
-        <textarea id="produtos" name="produtos" required class="neon"></textarea>
+        <textarea id="produtos" name="produtos"  class="neon"></textarea>
       </div>
 
       <div>
@@ -393,18 +403,18 @@
       <div>
         <label for="tendencias">Quais são as tendências de mercado que podem impactar seu
           setor?</label>
-        <textarea id="tendencias" name="tendencias" required class="neon"></textarea>
+        <textarea id="tendencias" name="tendencias"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="descricao_curta">Descreva o que sua marca faz em poucas palavras</label>
-        <textarea id="descricao_curta" name="descricao_curta" required class="neon"></textarea>
+        <textarea id="descricao_curta" name="descricao_curta"  class="neon"></textarea>
       </div>
 
       <div>
         <label for="palavras_associadas">Quais palavras você gostaria que fossem associadas à sua
           marca?</label>
-        <textarea id="palavras_associadas" name="palavras_associadas" required class="neon"></textarea>
+        <textarea id="palavras_associadas" name="palavras_associadas"  class="neon"></textarea>
         <div>
           Exemplo: Inovação, sofisticação, acessibilidade
         </div>
@@ -424,7 +434,7 @@
       <div>
         <label for="produtos_definidos">Você já tem produtos ou serviços definidos ou deseja ajuda para
           criar novas ofertas?</label>
-        <textarea id="produtos_definidos" name="produtos_definidos" required class="neon"></textarea>
+        <textarea id="produtos_definidos" name="produtos_definidos"  class="neon"></textarea>
       </div>
       <center>
         <button type="submit">Enviar Formulário</button>
@@ -474,18 +484,41 @@
           // Coletar dados do formulário
           const formData = new FormData(form);
           
-          // Processar checkbox de modelo de negócio
-          const modeloNegocio = [];
-          document
-            .querySelectorAll('input[name="modelo_negocio[]"]:checked')
-            .forEach((checkbox) => {
-              modeloNegocio.push(checkbox.value);
-            });
+          // Definir a variável temLogotipo
+          const temLogotipo = document.querySelector('input[name="tem_logotipo"]:checked')?.value;
 
-          // Upload da imagem do logotipo
-          const logotipoFile = formData.get('logotipo');
-          let logotipoUrl = '';
-          if (logotipoFile) {
+          // Verificar se o campo "tem_logotipo" foi selecionado
+          if (!temLogotipo) {
+            showAlert('Por favor, selecione se sua marca possui um logotipo (Sim ou Não).', 'error');
+            return; // Interrompe o envio do formulário
+          }
+
+          // Coletar os valores dos checkboxes de modelo de negócio
+          const modeloNegocio = [];
+          document.querySelectorAll('input[name="modelo_negocio[]"]:checked').forEach((checkbox) => {
+            modeloNegocio.push(checkbox.value);
+          });
+       
+          
+          let logotipoUrl = null;
+
+          if (temLogotipo === 'sim') {
+            const logotipoFile = formData.get('logotipo');
+            
+            // Verificar se o arquivo foi enviado
+            if (!logotipoFile || logotipoFile.size === 0) {
+              console.log("Arquivo de logotipo não enviado ou vazio.");
+              showAlert('Por favor, envie um arquivo de logotipo antes de continuar.', 'error');
+              return; // Interrompe o processamento do formulário
+            }
+          
+            // Verificar se o arquivo é uma imagem
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            if (!validImageTypes.includes(logotipoFile.type)) {
+              showAlert('Por favor, envie um arquivo de imagem válido (JPEG, PNG, GIF, WEBP).', 'error');
+              return; // Interrompe o processamento do formulário
+            }
+          
             try {
               // Gerar um nome de arquivo único usando UUID
               const uniqueFileName = `${generateUUID()}-${logotipoFile.name}`;
@@ -493,30 +526,30 @@
               const { data: uploadData, error: uploadError } = await supabase.storage
                 .from('logotipos')
                 .upload(`public/${uniqueFileName}`, logotipoFile);
-
+          
               if (uploadError) {
                 throw uploadError;
               }
-
+          
               // Obter a URL pública da imagem
               const { data: publicURLData, error: publicUrlError } = supabase.storage
                 .from('logotipos')
                 .getPublicUrl(`public/${uniqueFileName}`);
-
+          
               if (publicUrlError) {
                 throw publicUrlError;
               }
-
+          
               logotipoUrl = publicURLData.publicUrl;
             } catch (error) {
               console.error('Erro ao fazer upload do logotipo:', error);
               showAlert(`Erro ao fazer upload do logotipo: ${error.message || "Erro desconhecido"}. Por favor, tente novamente.`, 'error');
-              return;
+              return; // Interrompe o processamento do formulário
             }
           }
           
           // Criar objeto de dados
-          const data = {
+          let data = {
             empresa: formData.get('empresa'),
             setor: formData.get('setor'),
             nicho: formData.get('nicho'),
@@ -549,13 +582,6 @@
             crencas_clientes: formData.get('crencas_clientes'),
             gostos_clientes: formData.get('gostos_clientes'),
             venda_indireta: formData.get('venda_indireta'),
-            valores_clientes: formData.get('valores_clientes'),
-            sensacoes: formData.get('sensacoes'),
-            marcas_admiradas: formData.get('marcas_admiradas'),
-            barreiras: formData.get('barreiras'),
-            impacto: formData.get('impacto'),
-            transformacoes_produto: formData.get('transformacoes_produto'),
-            transformacoes_pessoais: formData.get('transformacoes_pessoais'),
             modelo_negocio: modeloNegocio,
             canais: formData.get('canais'),
             estrategia_digital: formData.get('estrategia_digital'),
@@ -579,6 +605,9 @@
             produtos_definidos: formData.get('produtos_definidos')
           };
           
+          // Substituir valores vazios por null
+          data = replaceEmptyWithNull(data);
+
           console.log("Dados preparados:", data);
           
           try {
@@ -615,16 +644,101 @@
         console.error("Elemento de alerta não encontrado!");
         return;
       }
-      
+
+      // Configurar o texto e a classe do alerta
       alert.textContent = message;
-      alert.className = `alert alert-${type}`;
-      alert.classList.remove('hidden');
-      
+      alert.className = `alert alert-${type}`; // Define a classe com base no tipo (ex: 'alert-error')
+      alert.style.display = 'block'; // Garante que o alerta seja exibido
+      alert.classList.remove('hidden'); // Remove a classe 'hidden', se existir
+
+      // Ocultar o alerta após 5 segundos
       setTimeout(() => {
-        alert.classList.add('hidden');
+        alert.style.display = 'none';
+        alert.classList.add('hidden'); // Adiciona a classe 'hidden' novamente
       }, 5000);
     }
+
+    const temLogotipoCheckbox = document.getElementById('tem_logotipo');
+
+    if (temLogotipoCheckbox) {
+      temLogotipoCheckbox.addEventListener('change', function () {
+        if (temLogotipoCheckbox.checked) {
+          logotipoUploadDiv.style.display = 'block'; // Mostrar campo de upload
+        } else {
+          logotipoUploadDiv.style.display = 'none'; // Ocultar campo de upload
+        }
+      });
+    }
+
+    // Função para substituir valores vazios por null
+    function replaceEmptyWithNull(obj) {
+      for (const key in obj) {
+        if (obj[key] === '') {
+          obj[key] = null;
+        }
+      }
+      return obj;
+    }
+
+    const logotipoSim = document.getElementById('tem_logotipo_sim');
+    const logotipoNao = document.getElementById('tem_logotipo_nao');
+    const logotipoUploadDiv = document.getElementById('logotipo_upload');
+
+    if (logotipoSim && logotipoNao) {
+      logotipoSim.addEventListener('change', function () {
+        if (logotipoSim.checked) {
+          logotipoUploadDiv.style.display = 'block'; // Mostrar campo de upload
+        }
+      });
+
+      logotipoNao.addEventListener('change', function () {
+        if (logotipoNao.checked) {
+          logotipoUploadDiv.style.display = 'none'; // Ocultar campo de upload
+        }
+      });
+    }
+
+    showAlert('Teste de alerta!', 'info');
   </script>
 </body>
 
 </html>
+
+<style>
+  .alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 0;
+    display: none; /* Oculto por padrão */
+  }
+
+  .alert-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    border-color: #00529B;
+  }
+
+  .alert-error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    border-color: #D8000C;
+  }
+
+  .alert-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    border-color: #4F8A10;
+  }
+
+  .hidden {
+    display: none !important; /* Garante que o estilo seja aplicado corretamente */
+  }
+</style>
