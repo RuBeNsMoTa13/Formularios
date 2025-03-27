@@ -338,6 +338,14 @@
         <div class="input-container">
           <textarea id="venda_indireta" name="venda_indireta" class="neon" maxlength="500"></textarea>
           <span class="char-counter" id="venda_indireta-counter">0/500</span>
+        </div>
+      </div>
+
+      <div>
+        <label>Qual é o seu modelo de negócio?</label>
+        <div>
+          <input type="radio" id="venda_direta" name="modelo_negocio" value="venda_direta" class="neon" />
+          <label for="venda_direta">Venda Direta</label>
           <input type="radio" id="assinatura" name="modelo_negocio" value="assinatura" class="neon" />
           <label for="assinatura">Assinatura</label>
           <input type="radio" id="marketplace" name="modelo_negocio" value="marketplace" class="neon" />
@@ -549,10 +557,7 @@
           }
 
           // Coletar os valores dos checkboxes de modelo de negócio
-          const modeloNegocio = [];
-          document.querySelectorAll('input[name="modelo_negocio[]"]:checked').forEach((checkbox) => {
-            modeloNegocio.push(checkbox.value);
-          });
+          const modeloNegocio = document.querySelector('input[name="modelo_negocio"]:checked')?.value || null;
        
           
           let logotipoUrl = null;
@@ -637,7 +642,7 @@
             crencas_clientes: formData.get('crencas_clientes'),
             gostos_clientes: formData.get('gostos_clientes'),
             venda_indireta: formData.get('venda_indireta'),
-            modelo_negocio: modeloNegocio,
+            modelo_negocio: formData.get('modelo_negocio'),
             canais: formData.get('canais'),
             estrategia_digital: formData.get('estrategia_digital'),
             diferencial: formData.get('diferencial'),
