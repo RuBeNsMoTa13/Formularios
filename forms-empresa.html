@@ -22,28 +22,43 @@
 
       <div>
         <label for="empresa">Nome da empresa/projeto</label>
-        <input type="text" id="empresa" name="empresa"  class="neon" />
+        <div class="input-container">
+          <input type="text" id="empresa" name="empresa" class="neon" maxlength="200" />
+          <span class="char-counter" id="empresa-counter">0/200</span>
+        </div>
       </div>
 
       <div>
         <label for="setor">Setor ou Indústria</label>
-        <input type="text" id="setor" name="setor"  class="neon" />
+        <div class="input-container">
+          <input type="text" id="setor" name="setor" class="neon" maxlength="200" />
+          <span class="char-counter" id="setor-counter">0/200</span>
+        </div>
       </div>
 
       <div>
         <label for="nicho">Nicho de mercado</label>
-        <input type="text" id="nicho" name="nicho"  class="neon" />
+        <div class="input-container">
+          <input type="text" id="nicho" name="nicho" class="neon" maxlength="200" />
+          <span class="char-counter" id="nicho-counter">0/200</span>
+        </div>
         <div>Exemplo: moda, tecnologia, educação, saúde</div>
       </div>
 
       <div>
         <label for="departamento">Departamento</label>
-        <input type="text" id="departamento" name="departamento" class="neon" />
+        <div class="input-container">
+          <input type="text" id="departamento" name="departamento" class="neon" maxlength="200" />
+          <span class="char-counter" id="departamento-counter">0/200</span>
+        </div>
       </div>
 
       <div>
         <label for="localizacao">Localização geográfica do mercado de atuação</label>
-        <input type="text" id="localizacao" name="localizacao"  class="neon" />
+        <div class="input-container">
+          <input type="text" id="localizacao" name="localizacao" class="neon" maxlength="200" />
+          <span class="char-counter" id="localizacao-counter">0/200</span>
+        </div>
         <div>
           Exemplo: Municipal - São Paulo/SP /ou/ Estadual - São Paulo e Minas
           Gerais /ou/ América Latina /ou/ Global
@@ -52,22 +67,34 @@
 
       <div>
         <label for="marca">Nome da Marca</label>
-        <input type="text" id="marca" name="marca"  class="neon" />
+        <div class="input-container">
+          <input type="text" id="marca" name="marca" class="neon" maxlength="200" />
+          <span class="char-counter" id="marca-counter">0/200</span>
+        </div>
       </div>
 
       <div>
         <label for="slogan">Slogan (se houver)</label>
-        <input type="text" id="slogan" name="slogan" class="neon" />
+        <div class="input-container">
+          <input type="text" id="slogan" name="slogan" class="neon" maxlength="200" />
+          <span class="char-counter" id="slogan-counter">0/200</span>
+        </div>
       </div>
 
       <div>
         <label for="fundadores">Fundador(es)</label>
-        <input type="text" id="fundadores" name="fundadores"  class="neon" />
+        <div class="input-container">
+          <input type="text" id="fundadores" name="fundadores" class="neon" maxlength="200" />
+          <span class="char-counter" id="fundadores-counter">0/200</span>
+        </div>
       </div>
 
       <div>
         <label for="fundacao">Ano de fundação</label>
-        <input type="text" id="fundacao" name="fundacao"  class="neon" />
+        <div class="input-container">
+          <input type="text" id="fundacao" name="fundacao" class="neon" maxlength="50" />
+          <span class="char-counter" id="fundacao-counter">0/50</span>
+        </div>
         <div>Exemplo: Março de 2010</div>
       </div>
 
@@ -85,23 +112,31 @@
 
       <div>
         <label for="sede">Localização da Sede se aplicável</label>
-        <input type="text" id="sede" name="sede" class="neon" />
+        <div class="input-container">
+          <input type="text" id="sede" name="sede" class="neon" maxlength="200" />
+          <span class="char-counter" id="sede-counter">0/200</span>
+        </div>
         <div>Exemplo: Matriz - São Paulo/SP</div>
       </div>
 
       <div>
         <label for="site">Site</label>
-        <input type="url" id="site" name="site" class="neon" />
+        <div class="input-container">
+          <input type="url" id="site" name="site" class="neon" maxlength="100" />
+          <span class="char-counter" id="site-counter">0/100</span>
+        </div>
       </div>
-
 
       <div>
         <label for="redes">Redes Sociais</label>
-        <input type="text" id="redes" name="redes" class="neon" />
-        <div>Exemplo: @MeuNegocio</div>
+        <div class="input-container">
+          <input type="text" id="redes" name="redes" class="neon" maxlength="200" />
+          <span class="char-counter" id="redes-counter">0/200</span>
+        </div>
+        <div>Exemplo: Instagram, Facebook, Linkedin, TikTok, Youtube </div>
       </div>
 
-      <div>
+      <div></div>
         <label>Sua marca possui um logotipo?</label>
         <div>
           <input type="radio" id="tem_logotipo_sim" name="tem_logotipo" value="sim" required />
@@ -113,13 +148,15 @@
 
       <div id="logotipo_upload" style="display: none;">
         <label for="logotipo">Faça o upload do logotipo:</label>
-        <input type="file" id="logotipo" name="logotipo"   accept="image/*" />
+        <input type="file" id="logotipo" name="logotipo" accept="image/*" />
       </div>
-
 
       <div>
         <label for="cores">Quais cores representam sua marca?</label>
-        <input type="text" id="cores" name="cores" class="neon" />
+        <div class="input-container">
+          <input type="text" id="cores" name="cores" class="neon" maxlength="200" />
+          <span class="char-counter" id="cores-counter">0/200</span>
+        </div>
         <div>
           Descreva as cores ou compartilhe os códigos HEX. Exemplo: Azul
           #0000FF, Branco #FFFFFF
@@ -129,7 +166,10 @@
       <div>
         <label for="estilo">Tem alguma referência visual ou estilo que gostaria de
           seguir?</label>
-        <input type="text" id="estilo" name="estilo" class="neon" />
+        <div class="input-container">
+          <input type="text" id="estilo" name="estilo" class="neon" maxlength="200" />
+          <span class="char-counter" id="estilo-counter">0/200</span>
+        </div>
         <div>
           Minimalista, vibrante, vintage, futurista, etc.
         </div>
@@ -147,7 +187,10 @@
 
       <div>
         <label for="descricao">Descreva brevemente o que sua empresa/produto faz</label>
-        <textarea id="descricao" name="descricao"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="descricao" name="descricao" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="descricao-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Oferecemos soluções de automação para pequenas empresas
         </div>
@@ -155,13 +198,19 @@
 
       <div>
         <label for="ideia">Qual é o seu negócio ou a ideia dele?</label>
-        <textarea id="ideia" name="ideia"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="ideia" name="ideia" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="ideia-counter">0/500</span>
+        </div>
         <div>Explique em poucas palavras</div>
       </div>
 
       <div>
         <label for="solucao">Qual a principal solução do seu produto/serviço?</label>
-        <textarea id="solucao" name="solucao"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="solucao" name="solucao" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="solucao-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Automatiza processos para economizar tempo
         </div>
@@ -169,7 +218,10 @@
 
       <div>
         <label for="entrega">Como é a entrega do seu produto/serviço?</label>
-        <textarea id="entrega" name="entrega"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="entrega" name="entrega" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="entrega-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Venda online, licença SaaS, assinatura mensal
         </div>
@@ -177,19 +229,28 @@
 
       <div>
         <label for="receita">Quais são suas principais fontes de receita?</label>
-        <textarea id="receita" name="receita"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="receita" name="receita" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="receita-counter">0/500</span>
+        </div>
         <div>Exemplo: Venda direta, Assinatura, Publicidade</div>
       </div>
 
       <div>
         <label for="parceiros">Quem são seus principais parceiros?</label>
-        <textarea id="parceiros" name="parceiros" class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="parceiros" name="parceiros" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="parceiros-counter">0/500</span>
+        </div>
         <div>Exemplo: Fornecedores, investidores, afiliados</div>
       </div>
 
       <div>
         <label for="publico">Quem são seus públicos-alvo e avatares?</label>
-        <textarea id="publico" name="publico"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="publico" name="publico" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="publico-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Mães de 30 a 40 anos autônomas que precisam conciliar
           trabalho profissional e maternidade dentro de casa
@@ -198,7 +259,10 @@
 
       <div>
         <label for="vendas">Como faz as vendas?</label>
-        <textarea id="vendas" name="vendas"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="vendas" name="vendas" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="vendas-counter">0/500</span>
+        </div>
         <div>
           B2B, B2C, Marketplace, Vendas diretas, Inbound, Outbound,
           Autoatendimento
@@ -207,7 +271,10 @@
 
       <div>
         <label for="relacionamento">Como você se relaciona com os clientes?</label>
-        <textarea id="relacionamento" name="relacionamento"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="relacionamento" name="relacionamento" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="relacionamento-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Atendimento personalizado, suporte automatizado, comunidade
           online
@@ -216,19 +283,28 @@
 
       <div>
         <label for="valores">Quais são seus valores?</label>
-        <textarea id="valores" name="valores"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="valores" name="valores" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="valores-counter">0/500</span>
+        </div>
         <div>Exemplo: Inovação, transparência, humanização</div>
       </div>
 
       <div>
         <label for="crenca">No que você acredita?</label>
-        <textarea id="crenca" name="crenca"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="crenca" name="crenca" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="crenca-counter">0/500</span>
+        </div>
         <div>Exemplo: Transformar ideias em resultados</div>
       </div>
 
       <div>
         <label for="objetivo">Qual é o seu objetivo / propósito?</label>
-        <textarea id="objetivo" name="objetivo"  class="neon"></textarea>
+        <div class="input-container"></div>
+          <textarea id="objetivo" name="objetivo" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="objetivo-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Democratizar o acesso à tecnologia para pequenos negócios
         </div>
@@ -236,7 +312,10 @@
 
       <div>
         <label for="crencas_clientes">No que seus clientes em potencial acreditam?</label>
-        <textarea id="crencas_clientes" name="crencas_clientes"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="crencas_clientes" name="crencas_clientes" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="crencas_clientes-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Mudar de vida, ganhar dinheiro fácil, ter uma vida
           abundante
@@ -245,7 +324,10 @@
 
       <div>
         <label for="gostos_clientes">Do que seus clientes em potencial gostam?</label>
-        <textarea id="gostos_clientes" name="gostos_clientes"  class="neon"></textarea>
+        <div class="input-container">
+          <textarea id="gostos_clientes" name="gostos_clientes" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="gostos_clientes-counter">0/500</span>
+        </div>
         <div>
           Exemplo: Praticidade, Carro, Viagem, Tecnologia
         </div>
@@ -253,56 +335,9 @@
 
       <div>
         <label for="venda_indireta">O que você vende sem dizer o que você vende?</label>
-        <textarea id="venda_indireta" name="venda_indireta"  class="neon"></textarea>
-        <div>
-          Exemplo: Facilidade, Inovação, Praticidade, Sonhos
-        </div>
-      </div>
-
-      <div>
-        <label for="valores_clientes">Quais são os valores e crenças dos seus clientes?</label>
-        <textarea id="valores_clientes" name="valores_clientes"  class="neon"></textarea>
-        <div>
-          Exemplo: Liberdade financeira, automação, crescimento profissional
-        </div>
-      </div>
-
-      <div>
-        <label for="sensacoes">Quais sensações você quer que sua marca transmita?</label>
-        <textarea id="sensacoes" name="sensacoes"  class="neon"></textarea>
-        <div>Exemplo: luxo, acessibilidade, inovação</div>
-      </div>
-
-      <div>
-        <label for="marcas_admiradas">Quais marcas você admira e por quê?</label>
-        <textarea id="marcas_admiradas" name="marcas_admiradas" class="neon"></textarea>
-      </div>
-
-      <div>
-        <label for="barreiras">Quais são as barreiras de entrada no setor?</label>
-        <textarea id="barreiras" name="barreiras" class="neon"></textarea>
-      </div>
-
-      <div>
-        <label for="impacto">Qual impacto isso gera?</label>
-        <textarea id="impacto" name="impacto"  class="neon"></textarea>
-      </div>
-
-      <div>
-        <label for="transformacoes_produto">Liste as transformações que o seu produto/serviço oferece</label>
-        <textarea id="transformacoes_produto" name="transformacoes_produto"  class="neon"></textarea>
-      </div>
-
-      <div>
-        <label for="transformacoes_pessoais">Liste as transformações pessoais que o seu produto/serviço oferece</label>
-        <textarea id="transformacoes_pessoais" name="transformacoes_pessoais"  class="neon"></textarea>
-      </div>
-
-      <div>
-        <label>Qual é o seu modelo de negócio?</label>
-        <div>
-          <input type="radio" id="venda_direta" name="modelo_negocio" value="venda_direta" class="neon" />
-          <label for="venda_direta">Venda Direta</label>
+        <div class="input-container">
+          <textarea id="venda_indireta" name="venda_indireta" class="neon" maxlength="500"></textarea>
+          <span class="char-counter" id="venda_indireta-counter">0/500</span>
           <input type="radio" id="assinatura" name="modelo_negocio" value="assinatura" class="neon" />
           <label for="assinatura">Assinatura</label>
           <input type="radio" id="marketplace" name="modelo_negocio" value="marketplace" class="neon" />
@@ -314,7 +349,8 @@
 
       <div>
         <label for="canais">Quais canais você usa para gerar leads e vendas?</label>
-        <textarea id="canais" name="canais"  class="neon"></textarea>
+        <textarea id="canais" name="canais" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="canais-counter">0/500</small>
         <div>
           Exemplo: E-commerce, E-mail, LinkedIn, Telefone, Whatsapp, Eventos
         </div>
@@ -323,29 +359,34 @@
       <div>
         <label for="estrategia_digital">Você já tem uma estratégia de presença digital ou quer começar do
           zero?</label>
-        <textarea id="estrategia_digital" name="estrategia_digital"  class="neon"></textarea>
+        <textarea id="estrategia_digital" name="estrategia_digital" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="estrategia_digital-counter">0/500</small>
       </div>
 
       <div>
         <label for="diferencial">O que torna seu negócio diferente dos concorrentes?</label>
-        <textarea id="diferencial" name="diferencial"  class="neon"></textarea>
+        <textarea id="diferencial" name="diferencial" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="diferencial-counter">0/500</small>
       </div>
 
       <div>
         <label for="concorrentes">Quem são seus principais concorrentes ou referências no
           mercado?</label>
-        <textarea id="concorrentes" name="concorrentes"  class="neon"></textarea>
+        <textarea id="concorrentes" name="concorrentes" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="concorrentes-counter">0/500</small>
       </div>
 
       <div>
         <label for="concorrentes_melhor">O que acha que seus concorrentes estão fazendo melhor do que
           você?</label>
-        <textarea id="concorrentes_melhor" name="concorrentes_melhor" class="neon"></textarea>
+        <textarea id="concorrentes_melhor" name="concorrentes_melhor" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="concorrentes_melhor-counter">0/500</small>
       </div>
 
       <div>
         <label for="desafios">Quais são seus principais desafios e oportunidades?</label>
-        <textarea id="desafios" name="desafios"  class="neon"></textarea>
+        <textarea id="desafios" name="desafios" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="desafios-counter">0/500</small>
       </div>
 
       <div>
@@ -361,13 +402,15 @@
       <div>
         <label for="ciclo_vendas">Qual é o tempo médio do seu ciclo de vendas, do primeiro contato
           até o fechamento?</label>
-        <input type="text" id="ciclo_vendas" name="ciclo_vendas"  class="neon" />
+        <input type="text" id="ciclo_vendas" name="ciclo_vendas" class="neon" maxlength="200" />
+        <small class="char-counter" id="ciclo_vendas-counter">0/200</small>
       </div>
 
       <div>
         <label for="gargalo">Há algum gargalo específico no processo de vendas que você gostaria
           de resolver?</label>
-        <input type="text" id="gargalo" name="gargalo" class="neon" />
+        <input type="text" id="gargalo" name="gargalo" class="neon" maxlength="200" />
+        <small class="char-counter" id="gargalo-counter">0/200</small>
         <div>
           Ex: baixa taxa de conversão, aumentar o ticket médio, etc
         </div>
@@ -375,47 +418,55 @@
 
       <div>
         <label for="descoberta">Como um cliente descobre seu negócio hoje?</label>
-        <textarea id="descoberta" name="descoberta"  class="neon"></textarea>
+        <textarea id="descoberta" name="descoberta" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="descoberta-counter">0/500</small>
         <div>Exemplo: Indicações, redes sociais, anúncios</div>
       </div>
 
       <div>
         <label for="jornada">Quais passos um cliente percorre até comprar algo de você?</label>
-        <textarea id="jornada" name="jornada"  class="neon"></textarea>
+        <textarea id="jornada" name="jornada" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="jornada-counter">0/500</small>
       </div>
 
       <div>
         <label for="melhorias">Onde você acha que pode melhorar essa experiência da jornada do seu
           cliente?</label>
-        <textarea id="melhorias" name="melhorias"  class="neon"></textarea>
+        <textarea id="melhorias" name="melhorias" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="melhorias-counter">0/500</small>
       </div>
 
       <div>
         <label for="produtos">Quais produtos ou serviços sua marca oferece?</label>
-        <textarea id="produtos" name="produtos"  class="neon"></textarea>
+        <textarea id="produtos" name="produtos" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="produtos-counter">0/500</small>
       </div>
 
       <div>
         <label for="diferenciais">A empresa tem diferenciais fortes que fidelizam clientes? Se sim,
           quais?</label>
-        <textarea id="diferenciais" name="diferenciais" class="neon"></textarea>
+        <textarea id="diferenciais" name="diferenciais" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="diferenciais-counter">0/500</small>
       </div>
 
       <div>
         <label for="tendencias">Quais são as tendências de mercado que podem impactar seu
           setor?</label>
-        <textarea id="tendencias" name="tendencias"  class="neon"></textarea>
+        <textarea id="tendencias" name="tendencias" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="tendencias-counter">0/500</small>
       </div>
 
       <div>
         <label for="descricao_curta">Descreva o que sua marca faz em poucas palavras</label>
-        <textarea id="descricao_curta" name="descricao_curta"  class="neon"></textarea>
+        <textarea id="descricao_curta" name="descricao_curta" class="neon" maxlength="200"></textarea>
+        <small class="char-counter" id="descricao_curta-counter">0/200</small>
       </div>
 
       <div>
         <label for="palavras_associadas">Quais palavras você gostaria que fossem associadas à sua
           marca?</label>
-        <textarea id="palavras_associadas" name="palavras_associadas"  class="neon"></textarea>
+        <textarea id="palavras_associadas" name="palavras_associadas" class="neon" maxlength="200"></textarea>
+        <small class="char-counter" id="palavras_associadas-counter">0/200</small>
         <div>
           Exemplo: Inovação, sofisticação, acessibilidade
         </div>
@@ -423,19 +474,22 @@
 
       <div>
         <label for="conteudo">Que tipo de conteúdo você já produz (se já produz)?</label>
-        <textarea id="conteudo" name="conteudo" class="neon"></textarea>
+        <textarea id="conteudo" name="conteudo" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="conteudo-counter">0/500</small>
       </div>
 
       <div>
         <label for="temas">Que temas gostaria de abordar?</label>
-        <textarea id="temas" name="temas" class="neon"></textarea>
+        <textarea id="temas" name="temas" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="temas-counter">0/500</small>
         <div>Exemplo: Educação, vendas, entretenimento</div>
       </div>
 
       <div>
         <label for="produtos_definidos">Você já tem produtos ou serviços definidos ou deseja ajuda para
           criar novas ofertas?</label>
-        <textarea id="produtos_definidos" name="produtos_definidos"  class="neon"></textarea>
+        <textarea id="produtos_definidos" name="produtos_definidos" class="neon" maxlength="500"></textarea>
+        <small class="char-counter" id="produtos_definidos-counter">0/500</small>
       </div>
       <center>
         <button type="submit">Enviar Formulário</button>
@@ -699,6 +753,18 @@
       });
     }
 
+    // Função para atualizar contadores de caracteres
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputs = document.querySelectorAll('input[type="text"], textarea');
+      inputs.forEach(input => {
+        const counter = document.getElementById(`${input.id}-counter`);
+        if (counter) {
+          input.addEventListener('input', () => {
+            counter.textContent = `${input.value.length}/${input.maxLength}`;
+          });
+        }
+      });
+    });
   </script>
 </body>
 
