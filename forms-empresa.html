@@ -573,9 +573,9 @@
             }
           
             // Verificar se o arquivo é uma imagem
-            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-            if (!validImageTypes.includes(logotipoFile.type)) {
-              showAlert('Por favor, envie um arquivo de imagem válido (JPEG, PNG, GIF, WEBP).', 'error');
+            const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+            if (!validImageTypes.includes(logotipoFile.type.toLowerCase())) {
+              showAlert('Por favor, envie um arquivo de imagem válido (JPEG, JPG, PNG, GIF, WEBP).', 'error');
               return; // Interrompe o processamento do formulário
             }
           
@@ -803,31 +803,34 @@
 
         // Função para criar checkbox de confirmação
         function createConfirmationCheckbox() {
-          if (!document.getElementById('confirm-empty-fields')) {
-            const checkboxContainer = document.createElement('div');
-            checkboxContainer.style.marginTop = '20px';
-
-            confirmationCheckbox = document.createElement('input');
-            confirmationCheckbox.type = 'checkbox';
-            confirmationCheckbox.id = 'confirm-empty-fields';
-            confirmationCheckbox.name = 'confirm-empty-fields';
-
-            const checkboxLabel = document.createElement('label');
-            checkboxLabel.htmlFor = 'confirm-empty-fields';
-            checkboxLabel.style.marginLeft = '5px';
-            checkboxLabel.textContent = 'Você confirma que deseja enviar o formulário com campos vazios?';
-
-            checkboxContainer.appendChild(confirmationCheckbox);
-            checkboxContainer.appendChild(checkboxLabel);
-
-            submitButton.insertAdjacentElement('beforebegin', checkboxContainer);
-
-            // Desativar botão "Enviar" até que a checkbox seja marcada
-            submitButton.disabled = true;
-            confirmationCheckbox.addEventListener('change', () => {
-              submitButton.disabled = !confirmationCheckbox.checked;
-            });
+          // Sempre recria a checkbox para garantir que ela seja validada novamente
+          if (document.getElementById('confirm-empty-fields')) {
+            document.getElementById('confirm-empty-fields').parentElement.remove();
           }
+
+          const checkboxContainer = document.createElement('div');
+          checkboxContainer.style.marginTop = '20px';
+
+          confirmationCheckbox = document.createElement('input');
+          confirmationCheckbox.type = 'checkbox';
+          confirmationCheckbox.id = 'confirm-empty-fields';
+          confirmationCheckbox.name = 'confirm-empty-fields';
+
+          const checkboxLabel = document.createElement('label');
+          checkboxLabel.htmlFor = 'confirm-empty-fields';
+          checkboxLabel.style.marginLeft = '5px';
+          checkboxLabel.textContent = 'Você confirma que deseja enviar o formulário com campos vazios?';
+
+          checkboxContainer.appendChild(confirmationCheckbox);
+          checkboxContainer.appendChild(checkboxLabel);
+
+          submitButton.insertAdjacentElement('beforebegin', checkboxContainer);
+
+          // Desativar botão "Enviar" até que a checkbox seja marcada
+          submitButton.disabled = true;
+          confirmationCheckbox.addEventListener('change', () => {
+            submitButton.disabled = !confirmationCheckbox.checked;
+          });
         }
 
         // Função para validar o formulário em tempo real
@@ -856,12 +859,15 @@
           if (emptyFields.length > 0) {
             if (!confirmationCheckbox || !confirmationCheckbox.checked) {
               event.preventDefault(); // Impedir envio se a checkbox não estiver marcada
+              createConfirmationCheckbox(); // Garantir que a checkbox seja recriada
               return;
             }
           }
 
           // Permitir o envio do formulário
           console.log('Formulário enviado com sucesso!');
+          form.reset(); // Reseta o formulário após o envio
+          confirmationCheckbox = null; // Reseta a checkbox para garantir que ela seja recriada na próxima tentativa
         });
       }
     });
