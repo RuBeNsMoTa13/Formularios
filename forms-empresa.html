@@ -513,8 +513,8 @@
 
   <script>
     // Configuração do Supabase - substitua com suas credenciais reais
-    const supabaseUrl = 'https://yxejryjkfscytyndeukp.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl4ZWpyeWprZnNjeXR5bmRldWtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEyOTA2MTEsImV4cCI6MjA1Njg2NjYxMX0.xxeCRx6ie2SikdP8uEg7ev2EoRoziaMapPvO1ZEpHMY';
+    const supabaseUrl = 'https://qgwhqnjzngkpblvxhlpv.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnd2hxbmp6bmdrcGJsdnhobHB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0MjYwODksImV4cCI6MjA1NjAwMjA4OX0.c20EP-33etpLN8cox_m_1-Ljg_ZDzAePPSI87d2A3hs';
     
     // Inicializar cliente Supabase usando a variável global do CDN
     const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
@@ -769,6 +769,101 @@
           });
         }
       });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('businessForm');
+      const submitButton = form.querySelector('button[type="submit"]');
+      let confirmationCheckbox;
+
+      if (form) {
+        const inputs = form.querySelectorAll('input, textarea, select');
+
+        // Função para verificar campos vazios
+        function validateFields() {
+          const emptyFields = [];
+          inputs.forEach((input) => {
+            const errorMessage = input.nextElementSibling;
+            if (!input.value.trim() && input.type !== 'file') {
+              emptyFields.push(input);
+              if (!errorMessage || !errorMessage.classList.contains('error-message')) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.color = 'red';
+                errorDiv.style.fontSize = '12px';
+                errorDiv.textContent = 'Este campo está vazio.';
+                input.insertAdjacentElement('afterend', errorDiv);
+              }
+            } else if (errorMessage && errorMessage.classList.contains('error-message')) {
+              errorMessage.remove(); // Remove o alerta se o campo for preenchido
+            }
+          });
+          return emptyFields;
+        }
+
+        // Função para criar checkbox de confirmação
+        function createConfirmationCheckbox() {
+          if (!document.getElementById('confirm-empty-fields')) {
+            const checkboxContainer = document.createElement('div');
+            checkboxContainer.style.marginTop = '20px';
+
+            confirmationCheckbox = document.createElement('input');
+            confirmationCheckbox.type = 'checkbox';
+            confirmationCheckbox.id = 'confirm-empty-fields';
+            confirmationCheckbox.name = 'confirm-empty-fields';
+
+            const checkboxLabel = document.createElement('label');
+            checkboxLabel.htmlFor = 'confirm-empty-fields';
+            checkboxLabel.style.marginLeft = '5px';
+            checkboxLabel.textContent = 'Você confirma que deseja enviar o formulário com campos vazios?';
+
+            checkboxContainer.appendChild(confirmationCheckbox);
+            checkboxContainer.appendChild(checkboxLabel);
+
+            submitButton.insertAdjacentElement('beforebegin', checkboxContainer);
+
+            // Desativar botão "Enviar" até que a checkbox seja marcada
+            submitButton.disabled = true;
+            confirmationCheckbox.addEventListener('change', () => {
+              submitButton.disabled = !confirmationCheckbox.checked;
+            });
+          }
+        }
+
+        // Função para validar o formulário em tempo real
+        function validateForm() {
+          const emptyFields = validateFields();
+
+          if (emptyFields.length > 0) {
+            createConfirmationCheckbox();
+          } else {
+            if (confirmationCheckbox) {
+              confirmationCheckbox.parentElement.remove(); // Remover checkbox
+            }
+            submitButton.disabled = false; // Ativar botão "Enviar"
+          }
+        }
+
+        // Adicionar validação em tempo real
+        inputs.forEach((input) => {
+          input.addEventListener('input', validateForm);
+        });
+
+        // Adicionar validação no envio do formulário
+        form.addEventListener('submit', function (event) {
+          const emptyFields = validateFields();
+
+          if (emptyFields.length > 0) {
+            if (!confirmationCheckbox || !confirmationCheckbox.checked) {
+              event.preventDefault(); // Impedir envio se a checkbox não estiver marcada
+              return;
+            }
+          }
+
+          // Permitir o envio do formulário
+          console.log('Formulário enviado com sucesso!');
+        });
+      }
     });
   </script>
 </body>
