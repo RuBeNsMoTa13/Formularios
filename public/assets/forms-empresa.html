@@ -517,8 +517,9 @@
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnd2hxbmp6bmdrcGJsdnhobHB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0MjYwODksImV4cCI6MjA1NjAwMjA4OX0.c20EP-33etpLN8cox_m_1-Ljg_ZDzAePPSI87d2A3hs';
     
     // Inicializar cliente Supabase usando a variável global do CDN
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey, {
+  db: { schema: 'formularios' }
+});
     // Função para gerar UUID
     function generateUUID() {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
