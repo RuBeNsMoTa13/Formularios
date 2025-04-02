@@ -508,18 +508,11 @@
   <!-- Footer Section -->
   <script src="/assets/scripts/footer.js"></script>
 
-  <!-- Carregando o Supabase direto via CDN para garantir disponibilidade -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script>
-    // Configuração do Supabase - substitua com suas credenciais reais
-    const supabaseUrl = 'https://qgwhqnjzngkpblvxhlpv.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnd2hxbmp6bmdrcGJsdnhobHB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0MjYwODksImV4cCI6MjA1NjAwMjA4OX0.c20EP-33etpLN8cox_m_1-Ljg_ZDzAePPSI87d2A3hs';
-    
-    // Inicializar cliente Supabase usando a variável global do CDN
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey, {
-  db: { schema: 'formularios' }
-});
+
+  <script type="module">
+  import { supabase } from '/src/supabase.js';
+
     // Função para gerar UUID
     function generateUUID() {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
