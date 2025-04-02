@@ -63,7 +63,8 @@
       </div>
 
       <div>
-        <label for="restricoes_recursos">Há alguma restrição de recursos (orçamento, equipe, tempo) que devemos considerar ao escolher os KPIs?</label>
+        <label for="restricoes_recursos">Há alguma restrição de recursos (orçamento, equipe, tempo) que devemos
+          considerar ao escolher os KPIs?</label>
         <textarea id="restricoes_recursos" name="restricoes_recursos" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="restricoes_recursos-counter">0/500</span>
         <div>Exemplo: Tenho uma equipe pequena e preciso de métricas fáceis de acompanhar</div>
@@ -108,14 +109,16 @@
         <label for="canais_prioritarios">Quais canais de comunicação você deseja priorizar?</label>
         <textarea id="canais_prioritarios" name="canais_prioritarios" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="canais_prioritarios-counter">0/500</span>
-        <div>Exemplo: Queremos um mix de cold email, mensagens no Instagram e ligações, priorizando o disparo de email</div>
+        <div>Exemplo: Queremos um mix de cold email, mensagens no Instagram e ligações, priorizando o disparo de email
+        </div>
       </div>
 
       <div>
         <label for="tom_comunicacao">Qual o Tom de comunicação você deseja abordar nesses canais?</label>
         <textarea id="tom_comunicacao" name="tom_comunicacao" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="tom_comunicacao-counter">0/500</span>
-        <div>Exemplo: Buscamos um tom consultivo e direto, mas sem parecer robótico. Queremos ser objetivos, mas amigáveis</div>
+        <div>Exemplo: Buscamos um tom consultivo e direto, mas sem parecer robótico. Queremos ser objetivos, mas
+          amigáveis</div>
       </div>
 
       <div>
@@ -125,7 +128,8 @@
       </div>
 
       <div>
-        <label for="precos_concorrentes">Quanto seus concorrentes cobram no mesmo produto e serviço que o seu? Mais caro ou barato?</label>
+        <label for="precos_concorrentes">Quanto seus concorrentes cobram no mesmo produto e serviço que o seu? Mais caro
+          ou barato?</label>
         <textarea id="precos_concorrentes" name="precos_concorrentes" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="precos_concorrentes-counter">0/500</span>
       </div>
@@ -171,7 +175,8 @@
       </div>
 
       <div>
-        <label for="preferencia_crm">Você tem alguma preferência entre um CRM na nuvem (SaaS) ou um sistema local?</label>
+        <label for="preferencia_crm">Você tem alguma preferência entre um CRM na nuvem (SaaS) ou um sistema
+          local?</label>
         <textarea id="preferencia_crm" name="preferencia_crm" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="preferencia_crm-counter">0/500</span>
       </div>
@@ -184,7 +189,8 @@
       </div>
 
       <div>
-        <label for="conhecimento_crm">Sua equipe tem conhecimento para gerenciar um CRM ou precisará de treinamento?</label>
+        <label for="conhecimento_crm">Sua equipe tem conhecimento para gerenciar um CRM ou precisará de
+          treinamento?</label>
         <textarea id="conhecimento_crm" name="conhecimento_crm" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="conhecimento_crm-counter">0/500</span>
       </div>
@@ -202,7 +208,8 @@
       </div>
 
       <div>
-        <label for="tipo_funil_vendas">Você prefere um funil de vendas para lançamento, perpétuo, tripwire, webinar, perpétuo, físico ou outro?</label>
+        <label for="tipo_funil_vendas">Você prefere um funil de vendas para lançamento, perpétuo, tripwire, webinar,
+          perpétuo, físico ou outro?</label>
         <textarea id="tipo_funil_vendas" name="tipo_funil_vendas" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="tipo_funil_vendas-counter">0/500</span>
       </div>
@@ -214,7 +221,8 @@
       </div>
 
       <div>
-        <label for="estrategias_upsell">Você já tem ou quer trabalhar com upsells, downsells ou cross-sells? Se sim, quais?</label>
+        <label for="estrategias_upsell">Você já tem ou quer trabalhar com upsells, downsells ou cross-sells? Se sim,
+          quais?</label>
         <textarea id="estrategias_upsell" name="estrategias_upsell" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="estrategias_upsell-counter">0/500</span>
       </div>
@@ -245,7 +253,8 @@
       </div>
 
       <div>
-        <label for="estrategias_eventos">Você já tem ou deseja criar estratégias como eventos, feiras ou networking?</label>
+        <label for="estrategias_eventos">Você já tem ou deseja criar estratégias como eventos, feiras ou
+          networking?</label>
         <textarea id="estrategias_eventos" name="estrategias_eventos" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="estrategias_eventos-counter">0/500</span>
       </div>
@@ -257,7 +266,8 @@
       </div>
 
       <div>
-        <label for="aquisicao_offline">Como os clientes chegam até você no mundo offline? (caso tenha negócio físico)</label>
+        <label for="aquisicao_offline">Como os clientes chegam até você no mundo offline? (caso tenha negócio
+          físico)</label>
         <textarea id="aquisicao_offline" name="aquisicao_offline" class="neon" maxlength="500"></textarea>
         <span class="char-counter" id="aquisicao_offline-counter">0/500</span>
       </div>
@@ -276,7 +286,7 @@
 
     // Função para gerar UUID
     function generateUUID() {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
       });

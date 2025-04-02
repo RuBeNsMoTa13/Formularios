@@ -137,13 +137,13 @@
       </div>
 
       <div></div>
-        <label>Sua marca possui um logotipo?</label>
-        <div>
-          <input type="radio" id="tem_logotipo_sim" name="tem_logotipo" value="sim" required />
-          <label for="tem_logotipo_sim">Sim</label>
-          <input type="radio" id="tem_logotipo_nao" name="tem_logotipo" value="nao" />
-          <label for="tem_logotipo_nao">Não</label>
-        </div>
+      <label>Sua marca possui um logotipo?</label>
+      <div>
+        <input type="radio" id="tem_logotipo_sim" name="tem_logotipo" value="sim" required />
+        <label for="tem_logotipo_sim">Sim</label>
+        <input type="radio" id="tem_logotipo_nao" name="tem_logotipo" value="nao" />
+        <label for="tem_logotipo_nao">Não</label>
+      </div>
       </div>
 
       <div id="logotipo_upload" style="display: none;">
@@ -302,12 +302,12 @@
       <div>
         <label for="objetivo">Qual é o seu objetivo / propósito?</label>
         <div class="input-container"></div>
-          <textarea id="objetivo" name="objetivo" class="neon" maxlength="500"></textarea>
-          <span class="char-counter" id="objetivo-counter">0/500</span>
-        </div>
-        <div>
-          Exemplo: Democratizar o acesso à tecnologia para pequenos negócios
-        </div>
+        <textarea id="objetivo" name="objetivo" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="objetivo-counter">0/500</span>
+      </div>
+      <div>
+        Exemplo: Democratizar o acesso à tecnologia para pequenos negócios
+      </div>
       </div>
 
       <div>
@@ -511,36 +511,36 @@
 
 
   <script type="module">
-  import { supabase } from '/src/supabase.js';
+    import { supabase } from '/src/supabase.js';
 
     // Função para gerar UUID
     function generateUUID() {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
       });
     }
-    
+
     // Registrar função de envio do formulário quando o documento estiver carregado
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       console.log("Documento carregado, inicializando formulário...");
-      
+
       // Capturar o formulário
       const form = document.getElementById('businessForm');
       console.log("Formulário encontrado:", !!form);
-      
+
       // Adicionar event listener para submit
       if (form) {
-        form.addEventListener('submit', async function(event) {
+        form.addEventListener('submit', async function (event) {
           event.preventDefault();
           console.log("Formulário enviado, iniciando processamento...");
-          
+
           // Mostrar alerta de processamento
           showAlert('Enviando formulário...', 'info');
-          
+
           // Coletar dados do formulário
           const formData = new FormData(form);
-          
+
           // Definir a variável temLogotipo
           const temLogotipo = document.querySelector('input[name="tem_logotipo"]:checked')?.value;
 
@@ -552,48 +552,48 @@
 
           // Coletar os valores dos checkboxes de modelo de negócio
           const modeloNegocio = document.querySelector('input[name="modelo_negocio"]:checked')?.value || null;
-       
-          
+
+
           let logotipoUrl = null;
 
           if (temLogotipo === 'sim') {
             const logotipoFile = formData.get('logotipo');
-            
+
             // Verificar se o arquivo foi enviado
             if (!logotipoFile || logotipoFile.size === 0) {
               console.log("Arquivo de logotipo não enviado ou vazio.");
               showAlert('Por favor, envie um arquivo de logotipo antes de continuar.', 'error');
               return; // Interrompe o processamento do formulário
             }
-          
+
             // Verificar se o arquivo é uma imagem
             const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
             if (!validImageTypes.includes(logotipoFile.type.toLowerCase())) {
               showAlert('Por favor, envie um arquivo de imagem válido (JPEG, JPG, PNG, GIF, WEBP).', 'error');
               return; // Interrompe o processamento do formulário
             }
-          
+
             try {
               // Gerar um nome de arquivo único usando UUID
               const uniqueFileName = `${generateUUID()}-${logotipoFile.name}`;
-              
+
               const { data: uploadData, error: uploadError } = await supabase.storage
                 .from('logotipos')
                 .upload(`public/${uniqueFileName}`, logotipoFile);
-          
+
               if (uploadError) {
                 throw uploadError;
               }
-          
+
               // Obter a URL pública da imagem
               const { data: publicURLData, error: publicUrlError } = supabase.storage
                 .from('logotipos')
                 .getPublicUrl(`public/${uniqueFileName}`);
-          
+
               if (publicUrlError) {
                 throw publicUrlError;
               }
-          
+
               logotipoUrl = publicURLData.publicUrl;
             } catch (error) {
               console.error('Erro ao fazer upload do logotipo:', error);
@@ -601,7 +601,7 @@
               return; // Interrompe o processamento do formulário
             }
           }
-          
+
           // Criar objeto de dados
           let data = {
             empresa: formData.get('empresa'),
@@ -658,26 +658,26 @@
             temas: formData.get('temas'),
             produtos_definidos: formData.get('produtos_definidos')
           };
-          
+
           // Substituir valores vazios por null
           data = replaceEmptyWithNull(data);
 
           console.log("Dados preparados:", data);
-          
+
           try {
             console.log("Iniciando inserção no Supabase...");
-            
+
             // Enviar dados para o Supabase
             const { data: result, error } = await supabase
               .from('business_form')
               .insert([data]);
-            
+
             console.log("Resposta do Supabase:", { result, error });
-            
+
             if (error) {
               throw error;
             }
-            
+
             showAlert('Formulário enviado com sucesso!', 'success');
             form.reset();
           } catch (error) {
@@ -690,7 +690,7 @@
         });
       }
     });
-    
+
     // Função para mostrar alertas
     function showAlert(message, type) {
       const alert = document.getElementById('alert');
@@ -869,4 +869,3 @@
 </body>
 
 </html>
-
