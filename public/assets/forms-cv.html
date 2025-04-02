@@ -15,205 +15,255 @@
 
   <!-- Main Content -->
   <main>
-    <div id="alert" class="hidden"></div>
-    <form id="businessForm2" class="form-bordered">
+    <div id="alert" class="alert hidden"></div>
+    <form id="businessForm" class="form-bordered">
       <h1>Formulário de Informações Empresariais 2</h1>
 
+      <!-- Perguntas específicas do formulário -->
       <div>
-        <label for="objetivos">Quais são os principais objetivos e metas a curto, médio e longo prazo?</label>
-        <textarea id="objetivos" name="objetivos" required class="shared-styles"></textarea>
-        <div>Exemplo: Curto Prazo: crescimento rápido e lucratividade; Médio Prazo: retenção dos clientes e aumento do ticket médio; Longo Prazo: expansão para novos mercados</div>
+        <label for="objetivos_curto">Quais são os principais objetivos e metas a curto prazo?</label>
+        <textarea id="objetivos_curto" name="objetivos_curto" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="objetivos_curto-counter">0/500</span>
+        <div>Exemplo: crescimento rápido e lucratividade</div>
       </div>
 
       <div>
-        <label for="dados">Que dados você já está acompanhando e quais ferramentas utiliza?</label>
-        <textarea id="dados" name="dados" required class="shared-styles"></textarea>
+        <label for="objetivos_medio">Quais são os principais objetivos e metas a médio prazo?</label>
+        <textarea id="objetivos_medio" name="objetivos_medio" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="objetivos_medio-counter">0/500</span>
+        <div>Exemplo: retenção dos clientes e aumento do ticket médio</div>
+      </div>
+
+      <div>
+        <label for="objetivos_longo">Quais são os principais objetivos e metas a longo prazo?</label>
+        <textarea id="objetivos_longo" name="objetivos_longo" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="objetivos_longo-counter">0/500</span>
+        <div>Exemplo: expansão para novos mercados</div>
+      </div>
+
+      <div>
+        <label for="dados_acompanhados">Que dados você já está acompanhando e quais ferramentas utiliza?</label>
+        <textarea id="dados_acompanhados" name="dados_acompanhados" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="dados_acompanhados-counter">0/500</span>
         <div>Exemplo: HubSpot para rastrear conversões de leads</div>
       </div>
 
       <div>
         <label for="desafios">Quais são os maiores desafios ou áreas que você deseja melhorar?</label>
-        <textarea id="desafios" name="desafios" required class="shared-styles"></textarea>
+        <textarea id="desafios" name="desafios" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="desafios-counter">0/500</span>
         <div>Exemplo: Alto custo de aquisição de clientes (CAC alto) que prejudica a margem de lucro</div>
       </div>
 
       <div>
-        <label for="estrategias">Quais são suas estratégias e canais atuais de aquisição de clientes?</label>
-        <textarea id="estrategias" name="estrategias" required class="shared-styles"></textarea>
+        <label for="estrategias_aquisicao">Quais são suas estratégias e canais atuais de aquisição de clientes?</label>
+        <textarea id="estrategias_aquisicao" name="estrategias_aquisicao" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="estrategias_aquisicao-counter">0/500</span>
         <div>Exemplo: Tráfego Pago em Google Ads e Facebook Ads</div>
       </div>
 
       <div>
-        <label for="restricoes">Há alguma restrição de recursos (orçamento, equipe, tempo) que devemos considerar ao escolher os KPIs?</label>
-        <textarea id="restricoes" name="restricoes" required class="shared-styles"></textarea>
+        <label for="restricoes_recursos">Há alguma restrição de recursos (orçamento, equipe, tempo) que devemos considerar ao escolher os KPIs?</label>
+        <textarea id="restricoes_recursos" name="restricoes_recursos" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="restricoes_recursos-counter">0/500</span>
         <div>Exemplo: Tenho uma equipe pequena e preciso de métricas fáceis de acompanhar</div>
       </div>
 
       <div>
-        <label for="futuro">Onde você imagina o seu negócio daqui 2 ou 3 anos?</label>
-        <textarea id="futuro" name="futuro" required class="shared-styles"></textarea>
+        <label for="futuro_negocio">Onde você imagina o seu negócio daqui 2 ou 3 anos?</label>
+        <textarea id="futuro_negocio" name="futuro_negocio" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="futuro_negocio-counter">0/500</span>
         <div>Exemplo: Expandir para outros estados do Brasil e triplicar o faturamento</div>
       </div>
 
       <div>
-        <label for="mudancas">Você tem planos de grandes mudanças ou expansões em breve?</label>
-        <textarea id="mudancas" name="mudancas" required class="shared-styles"></textarea>
+        <label for="planos_expansao">Você tem planos de grandes mudanças ou expansões em breve?</label>
+        <textarea id="planos_expansao" name="planos_expansao" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="planos_expansao-counter">0/500</span>
         <div>Exemplo: Estamos migrando para um novo modelo de monetização</div>
       </div>
 
       <div>
-        <label for="crm">Você já utiliza alguma ferramenta de CRM? Se sim, qual?</label>
-        <textarea id="crm" name="crm" required class="shared-styles"></textarea>
+        <label for="ferramenta_crm">Você já utiliza alguma ferramenta de CRM? Se sim, qual?</label>
+        <textarea id="ferramenta_crm" name="ferramenta_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="ferramenta_crm-counter">0/500</span>
         <div>Exemplo: Temos um CRM, mas o acompanhamento ainda é feito manualmente</div>
       </div>
 
       <div>
-        <label for="equipes">Quais equipes precisarão acessar o CRM?</label>
-        <textarea id="equipes" name="equipes" required class="shared-styles"></textarea>
+        <label for="equipes_acesso_crm">Quais equipes precisarão acessar o CRM?</label>
+        <textarea id="equipes_acesso_crm" name="equipes_acesso_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="equipes_acesso_crm-counter">0/500</span>
         <div>Exemplo: Vendas, marketing, atendimento, etc.</div>
       </div>
 
       <div>
         <label for="canais_comunicacao">Quais são os principais canais de comunicação com seus clientes?</label>
-        <textarea id="canais_comunicacao" name="canais_comunicacao" required class="shared-styles"></textarea>
+        <textarea id="canais_comunicacao" name="canais_comunicacao" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="canais_comunicacao-counter">0/500</span>
         <div>Exemplo: Telefone, WhatsApp, redes sociais, e-mail, etc.</div>
       </div>
 
       <div>
-        <label for="prioridade_canais">Quais canais de comunicação você deseja priorizar?</label>
-        <textarea id="prioridade_canais" name="prioridade_canais" required class="shared-styles"></textarea>
+        <label for="canais_prioritarios">Quais canais de comunicação você deseja priorizar?</label>
+        <textarea id="canais_prioritarios" name="canais_prioritarios" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="canais_prioritarios-counter">0/500</span>
         <div>Exemplo: Queremos um mix de cold email, mensagens no Instagram e ligações, priorizando o disparo de email</div>
       </div>
 
       <div>
         <label for="tom_comunicacao">Qual o Tom de comunicação você deseja abordar nesses canais?</label>
-        <textarea id="tom_comunicacao" name="tom_comunicacao" required class="shared-styles"></textarea>
+        <textarea id="tom_comunicacao" name="tom_comunicacao" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="tom_comunicacao-counter">0/500</span>
         <div>Exemplo: Buscamos um tom consultivo e direto, mas sem parecer robótico. Queremos ser objetivos, mas amigáveis</div>
       </div>
 
       <div>
         <label for="fluxo_atendimento">Existe algum fluxo de atendimento ao cliente definido?</label>
-        <textarea id="fluxo_atendimento" name="fluxo_atendimento" required class="shared-styles"></textarea>
+        <textarea id="fluxo_atendimento" name="fluxo_atendimento" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="fluxo_atendimento-counter">0/500</span>
       </div>
 
       <div>
-        <label for="preco_concorrentes">Quanto seus concorrentes cobram no mesmo produto e serviço que o seu? Mais caro ou barato?</label>
-        <textarea id="preco_concorrentes" name="preco_concorrentes" required class="shared-styles"></textarea>
+        <label for="precos_concorrentes">Quanto seus concorrentes cobram no mesmo produto e serviço que o seu? Mais caro ou barato?</label>
+        <textarea id="precos_concorrentes" name="precos_concorrentes" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="precos_concorrentes-counter">0/500</span>
       </div>
 
       <div>
         <label for="decisao_compra">Como seus clientes costumam tomar a decisão de compra?</label>
-        <textarea id="decisao_compra" name="decisao_compra" required class="shared-styles"></textarea>
+        <textarea id="decisao_compra" name="decisao_compra" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="decisao_compra-counter">0/500</span>
         <div>Exemplo: Por preço, qualidade, marca, indicação, etc.</div>
       </div>
 
       <div>
-        <label for="sensibilidade_preco">Seu mercado é mais sensível a preço ou valor?</label>
-        <textarea id="sensibilidade_preco" name="sensibilidade_preco" required class="shared-styles"></textarea>
+        <label for="mercado_sensibilidade">Seu mercado é mais sensível a preço ou valor?</label>
+        <textarea id="mercado_sensibilidade" name="mercado_sensibilidade" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="mercado_sensibilidade-counter">0/500</span>
         <div>Exemplo: Os clientes procuram o mais barato ou pagam mais por algo melhor?</div>
       </div>
 
       <div>
-        <label for="frequencia_compra">Seus clientes compram apenas uma vez ou voltam com frequência?</label>
-        <textarea id="frequencia_compra" name="frequencia_compra" required class="shared-styles"></textarea>
+        <label for="recorrencia_clientes">Seus clientes compram apenas uma vez ou voltam com frequência?</label>
+        <textarea id="recorrencia_clientes" name="recorrencia_clientes" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="recorrencia_clientes-counter">0/500</span>
       </div>
 
       <div>
-        <label for="faturamento">Quanto você quer faturar por mês/ano?</label>
-        <textarea id="faturamento" name="faturamento" required class="shared-styles"></textarea>
+        <label for="meta_faturamento">Quanto você quer faturar por mês/ano?</label>
+        <textarea id="meta_faturamento" name="meta_faturamento" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="meta_faturamento-counter">0/500</span>
         <div>Exemplo: quero estar faturando em média R$100 mil por mês em até 2 anos</div>
       </div>
 
       <div>
-        <label for="vendas_meta">Quantas vendas você precisa para atingir essa meta?</label>
-        <textarea id="vendas_meta" name="vendas_meta" required class="shared-styles"></textarea>
+        <label for="vendas_necessarias">Quantas vendas você precisa para atingir essa meta?</label>
+        <textarea id="vendas_necessarias" name="vendas_necessarias" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="vendas_necessarias-counter">0/500</span>
       </div>
 
       <div>
-        <label for="integracao_crm">Você utiliza alguma ferramenta que precisa integrar ao CRM?</label>
-        <textarea id="integracao_crm" name="integracao_crm" required class="shared-styles"></textarea>
+        <label for="integracoes_crm">Você utiliza alguma ferramenta que precisa integrar ao CRM?</label>
+        <textarea id="integracoes_crm" name="integracoes_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="integracoes_crm-counter">0/500</span>
         <div>Exemplo: E-commerce, ferramentas de marketing, ERP, etc.</div>
       </div>
 
       <div>
         <label for="preferencia_crm">Você tem alguma preferência entre um CRM na nuvem (SaaS) ou um sistema local?</label>
-        <textarea id="preferencia_crm" name="preferencia_crm" required class="shared-styles"></textarea>
+        <textarea id="preferencia_crm" name="preferencia_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="preferencia_crm-counter">0/500</span>
       </div>
 
       <div>
         <label for="objetivos_crm">Quais são os principais objetivos ao implementar o CRM?</label>
-        <textarea id="objetivos_crm" name="objetivos_crm" required class="shared-styles"></textarea>
+        <textarea id="objetivos_crm" name="objetivos_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="objetivos_crm-counter">0/500</span>
         <div>Exemplo: Aumentar vendas, melhorar atendimento, reduzir churn, etc.</div>
       </div>
 
       <div>
         <label for="conhecimento_crm">Sua equipe tem conhecimento para gerenciar um CRM ou precisará de treinamento?</label>
-        <textarea id="conhecimento_crm" name="conhecimento_crm" required class="shared-styles"></textarea>
+        <textarea id="conhecimento_crm" name="conhecimento_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="conhecimento_crm-counter">0/500</span>
       </div>
 
       <div>
         <label for="orcamento_crm">Qual é o orçamento disponível para o CRM?</label>
-        <textarea id="orcamento_crm" name="orcamento_crm" required class="shared-styles"></textarea>
+        <textarea id="orcamento_crm" name="orcamento_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="orcamento_crm-counter">0/500</span>
       </div>
 
       <div>
         <label for="suporte_crm">Você precisa de suporte técnico contínuo ou apenas na implementação do CRM?</label>
-        <textarea id="suporte_crm" name="suporte_crm" required class="shared-styles"></textarea>
+        <textarea id="suporte_crm" name="suporte_crm" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="suporte_crm-counter">0/500</span>
       </div>
 
       <div>
-        <label for="funil_vendas">Você prefere um funil de vendas para lançamento, perpétuo, tripwire, webinar, perpétuo, físico ou outro?</label>
-        <textarea id="funil_vendas" name="funil_vendas" required class="shared-styles"></textarea>
+        <label for="tipo_funil_vendas">Você prefere um funil de vendas para lançamento, perpétuo, tripwire, webinar, perpétuo, físico ou outro?</label>
+        <textarea id="tipo_funil_vendas" name="tipo_funil_vendas" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="tipo_funil_vendas-counter">0/500</span>
       </div>
 
       <div>
         <label for="ticket_venda">Sua venda é de ticket baixo, médio ou alto?</label>
-        <textarea id="ticket_venda" name="ticket_venda" required class="shared-styles"></textarea>
+        <textarea id="ticket_venda" name="ticket_venda" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="ticket_venda-counter">0/500</span>
       </div>
 
       <div>
-        <label for="upsells">Você já tem ou quer trabalhar com upsells, downsells ou cross-sells? Se sim, quais?</label>
-        <textarea id="upsells" name="upsells" required class="shared-styles"></textarea>
+        <label for="estrategias_upsell">Você já tem ou quer trabalhar com upsells, downsells ou cross-sells? Se sim, quais?</label>
+        <textarea id="estrategias_upsell" name="estrategias_upsell" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="estrategias_upsell-counter">0/500</span>
       </div>
 
       <div>
         <label for="programa_afiliados">Você já tem ou quer integrar um programa de afiliados?</label>
-        <textarea id="programa_afiliados" name="programa_afiliados" required class="shared-styles"></textarea>
+        <textarea id="programa_afiliados" name="programa_afiliados" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="programa_afiliados-counter">0/500</span>
       </div>
 
       <div>
         <label for="orcamento_trafego">Você tem orçamento para tráfego pago? Se sim, quanto por mês?</label>
-        <textarea id="orcamento_trafego" name="orcamento_trafego" required class="shared-styles"></textarea>
+        <textarea id="orcamento_trafego" name="orcamento_trafego" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="orcamento_trafego-counter">0/500</span>
         <div>Exemplo: facebook ads R$ 2.000, google ads R$ 1.000</div>
       </div>
 
       <div>
         <label for="programa_fidelidade">Tem algum programa de fidelidade ou recompra?</label>
-        <textarea id="programa_fidelidade" name="programa_fidelidade" required class="shared-styles"></textarea>
+        <textarea id="programa_fidelidade" name="programa_fidelidade" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="programa_fidelidade-counter">0/500</span>
       </div>
 
       <div>
-        <label for="engajamento">Como você mantém os clientes engajados após a compra?</label>
-        <textarea id="engajamento" name="engajamento" required class="shared-styles"></textarea>
+        <label for="engajamento_clientes">Como você mantém os clientes engajados após a compra?</label>
+        <textarea id="engajamento_clientes" name="engajamento_clientes" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="engajamento_clientes-counter">0/500</span>
       </div>
 
       <div>
         <label for="estrategias_eventos">Você já tem ou deseja criar estratégias como eventos, feiras ou networking?</label>
-        <textarea id="estrategias_eventos" name="estrategias_eventos" required class="shared-styles"></textarea>
+        <textarea id="estrategias_eventos" name="estrategias_eventos" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="estrategias_eventos-counter">0/500</span>
       </div>
 
       <div>
         <label for="loja_fisica">Você já tem ou deseja criar uma loja física ou atendimento presencial?</label>
-        <textarea id="loja_fisica" name="loja_fisica" required class="shared-styles"></textarea>
+        <textarea id="loja_fisica" name="loja_fisica" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="loja_fisica-counter">0/500</span>
       </div>
 
       <div>
-        <label for="offline">Como os clientes chegam até você no mundo offline? (caso tenha negócio físico)</label>
-        <textarea id="offline" name="offline" required class="shared-styles"></textarea>
+        <label for="aquisicao_offline">Como os clientes chegam até você no mundo offline? (caso tenha negócio físico)</label>
+        <textarea id="aquisicao_offline" name="aquisicao_offline" class="neon" maxlength="500"></textarea>
+        <span class="char-counter" id="aquisicao_offline-counter">0/500</span>
       </div>
 
       <center>
-        <button type="submit" aria-label="Enviar Formulário">Enviar Formulário</button>
+        <button type="submit">Enviar Formulário</button>
       </center>
     </form>
   </main>
@@ -221,98 +271,214 @@
   <!-- Footer Section -->
   <script src="/assets/scripts/footer.js"></script>
 
-  <!-- Carregando o Supabase direto via CDN para garantir disponibilidade -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <script type="module">
-    import { showAlert } from '/assets/scripts/common.js';
     import { supabase } from '/src/supabase.js';
-    
-    // Registrar função de envio do formulário quando o documento estiver carregado
-    document.addEventListener('DOMContentLoaded', function() {
+
+    // Função para gerar UUID
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
       console.log("Documento carregado, inicializando formulário...");
-      
-      // Capturar o formulário
-      const form = document.getElementById('businessForm2');
+
+      const form = document.getElementById('businessForm');
+      const submitButton = form.querySelector('button[type="submit"]');
+      let confirmationCheckbox;
+
       console.log("Formulário encontrado:", !!form);
-      
-      // Adicionar event listener para submit
+
       if (form) {
-        form.addEventListener('submit', async function(event) {
+        const inputs = form.querySelectorAll('input, textarea, select');
+
+        // Função para verificar campos vazios
+        function validateFields() {
+          const emptyFields = [];
+          inputs.forEach((input) => {
+            const errorMessage = input.nextElementSibling;
+            if (!input.value.trim() && input.type !== 'file') {
+              emptyFields.push(input);
+              if (!errorMessage || !errorMessage.classList.contains('error-message')) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.color = 'red';
+                errorDiv.style.fontSize = '12px';
+                errorDiv.textContent = 'Este campo está vazio.';
+                input.insertAdjacentElement('afterend', errorDiv);
+              }
+            } else if (errorMessage && errorMessage.classList.contains('error-message')) {
+              errorMessage.remove(); // Remove o alerta se o campo for preenchido
+            }
+          });
+          return emptyFields;
+        }
+
+        // Função para criar checkbox de confirmação
+        function createConfirmationCheckbox() {
+          if (document.getElementById('confirm-empty-fields')) {
+            document.getElementById('confirm-empty-fields').parentElement.remove();
+          }
+
+          const checkboxContainer = document.createElement('div');
+          checkboxContainer.style.marginTop = '20px';
+
+          confirmationCheckbox = document.createElement('input');
+          confirmationCheckbox.type = 'checkbox';
+          confirmationCheckbox.id = 'confirm-empty-fields';
+          confirmationCheckbox.name = 'confirm-empty-fields';
+
+          const checkboxLabel = document.createElement('label');
+          checkboxLabel.htmlFor = 'confirm-empty-fields';
+          checkboxLabel.style.marginLeft = '5px';
+          checkboxLabel.textContent = 'Você confirma que deseja enviar o formulário com campos vazios?';
+
+          checkboxContainer.appendChild(confirmationCheckbox);
+          checkboxContainer.appendChild(checkboxLabel);
+
+          submitButton.insertAdjacentElement('beforebegin', checkboxContainer);
+
+          submitButton.disabled = true;
+          confirmationCheckbox.addEventListener('change', () => {
+            submitButton.disabled = !confirmationCheckbox.checked;
+          });
+        }
+
+        // Função para validar o formulário em tempo real
+        function validateForm() {
+          const emptyFields = validateFields();
+
+          if (emptyFields.length > 0) {
+            createConfirmationCheckbox();
+          } else {
+            if (confirmationCheckbox) {
+              confirmationCheckbox.parentElement.remove();
+            }
+            submitButton.disabled = false;
+          }
+        }
+
+        // Adicionar validação em tempo real
+        inputs.forEach((input) => {
+          input.addEventListener('input', validateForm);
+        });
+
+        // Adicionar validação no envio do formulário
+        form.addEventListener('submit', async function (event) {
           event.preventDefault();
           console.log("Formulário enviado, iniciando processamento...");
-          
-          // Mostrar alerta de processamento
+
+          const emptyFields = validateFields();
+
+          if (emptyFields.length > 0) {
+            if (!confirmationCheckbox || !confirmationCheckbox.checked) {
+              createConfirmationCheckbox();
+              return;
+            }
+          }
+
           showAlert('Enviando formulário...', 'info');
-          
-          // Coletar dados do formulário
+
           const formData = new FormData(form);
-          
-          // Criar objeto de dados
-          const data = {
-            objetivos: formData.get('objetivos'),
-            dados: formData.get('dados'),
+
+          let data = {
+            objetivos_curto: formData.get('objetivos_curto'),
+            objetivos_medio: formData.get('objetivos_medio'),
+            objetivos_longo: formData.get('objetivos_longo'),
+            dados_acompanhados: formData.get('dados_acompanhados'),
             desafios: formData.get('desafios'),
-            estrategias: formData.get('estrategias'),
-            restricoes: formData.get('restricoes'),
-            futuro: formData.get('futuro'),
-            mudancas: formData.get('mudancas'),
-            crm: formData.get('crm'),
-            equipes: formData.get('equipes'),
+            estrategias_aquisicao: formData.get('estrategias_aquisicao'),
+            restricoes_recursos: formData.get('restricoes_recursos'),
+            futuro_negocio: formData.get('futuro_negocio'),
+            planos_expansao: formData.get('planos_expansao'),
+            ferramenta_crm: formData.get('ferramenta_crm'),
+            equipes_acesso_crm: formData.get('equipes_acesso_crm'),
             canais_comunicacao: formData.get('canais_comunicacao'),
-            prioridade_canais: formData.get('prioridade_canais'),
+            canais_prioritarios: formData.get('canais_prioritarios'),
             tom_comunicacao: formData.get('tom_comunicacao'),
             fluxo_atendimento: formData.get('fluxo_atendimento'),
-            preco_concorrentes: formData.get('preco_concorrentes'),
+            precos_concorrentes: formData.get('precos_concorrentes'),
             decisao_compra: formData.get('decisao_compra'),
-            sensibilidade_preco: formData.get('sensibilidade_preco'),
-            frequencia_compra: formData.get('frequencia_compra'),
-            faturamento: formData.get('faturamento'),
-            vendas_meta: formData.get('vendas_meta'),
-            integracao_crm: formData.get('integracao_crm'),
+            mercado_sensibilidade: formData.get('mercado_sensibilidade'),
+            recorrencia_clientes: formData.get('recorrencia_clientes'),
+            meta_faturamento: formData.get('meta_faturamento'),
+            vendas_necessarias: formData.get('vendas_necessarias'),
+            integracoes_crm: formData.get('integracoes_crm'),
             preferencia_crm: formData.get('preferencia_crm'),
             objetivos_crm: formData.get('objetivos_crm'),
             conhecimento_crm: formData.get('conhecimento_crm'),
             orcamento_crm: formData.get('orcamento_crm'),
             suporte_crm: formData.get('suporte_crm'),
-            funil_vendas: formData.get('funil_vendas'),
+            tipo_funil_vendas: formData.get('tipo_funil_vendas'),
             ticket_venda: formData.get('ticket_venda'),
-            upsells: formData.get('upsells'),
+            estrategias_upsell: formData.get('estrategias_upsell'),
             programa_afiliados: formData.get('programa_afiliados'),
             orcamento_trafego: formData.get('orcamento_trafego'),
             programa_fidelidade: formData.get('programa_fidelidade'),
-            engajamento: formData.get('engajamento'),
+            engajamento_clientes: formData.get('engajamento_clientes'),
             estrategias_eventos: formData.get('estrategias_eventos'),
             loja_fisica: formData.get('loja_fisica'),
-            offline: formData.get('offline')
+            aquisicao_offline: formData.get('aquisicao_offline'),
           };
-          
-          console.log("Dados preparados:", data);
-          
+
+          data = replaceEmptyWithNull(data);
+
           try {
-            console.log("Iniciando inserção no Supabase...");
-            
-            // Enviar dados para o Supabase
             const { data: result, error } = await supabase
-              .from('business_info')
+              .from('cv_form')
               .insert([data]);
-            
-            console.log("Resposta do Supabase:", { result, error });
-            
+
             if (error) {
               throw error;
             }
-            
+
             showAlert('Formulário enviado com sucesso!', 'success');
             form.reset();
           } catch (error) {
-            console.error('Erro completo:', error);
-            showAlert(
-              `Erro ao enviar formulário: ${error.message || "Erro desconhecido"}. Por favor, tente novamente.`,
-              'error'
-            );
+            console.error('Erro ao enviar formulário:', error);
+            showAlert(`Erro ao enviar formulário: ${error.message || "Erro desconhecido"}. Por favor, tente novamente.`, 'error');
           }
         });
+      }
+
+      // Função para atualizar contadores de caracteres
+      const inputs = document.querySelectorAll('textarea, input[type="text"]');
+      inputs.forEach(input => {
+        const counter = document.getElementById(`${input.id}-counter`);
+        if (counter) {
+          input.addEventListener('input', () => {
+            counter.textContent = `${input.value.length}/${input.maxLength}`;
+          });
+        }
+      });
+
+      function showAlert(message, type) {
+        const alert = document.getElementById('alert');
+        if (!alert) {
+          console.error("Elemento de alerta não encontrado!");
+          return;
+        }
+
+        alert.textContent = message;
+        alert.className = `alert alert-${type}`;
+        alert.style.display = 'block';
+        alert.classList.remove('hidden');
+
+        setTimeout(() => {
+          alert.style.display = 'none';
+          alert.classList.add('hidden');
+        }, 5000);
+      }
+
+      function replaceEmptyWithNull(obj) {
+        for (const key in obj) {
+          if (obj[key] === '') {
+            obj[key] = null;
+          }
+        }
+        return obj;
       }
     });
   </script>
