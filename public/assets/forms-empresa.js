@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
     const inputs = form.querySelectorAll('input, textarea, select');
 
-    // Função para verificar campos vazios
-    function validateFields() {
+    // Função para validar campos e lidar com a checkbox de confirmação
+    function validateAndHandleCheckbox() {
       const emptyFields = [];
       inputs.forEach((input) => {
         const errorMessage = input.nextElementSibling;
@@ -39,56 +39,50 @@ document.addEventListener('DOMContentLoaded', function () {
           errorMessage.remove(); // Remove o alerta se o campo for preenchido
         }
       });
-      return emptyFields;
-    }
-
-    // Função para criar checkbox de confirmação
-    function createConfirmationCheckbox() {
-      if (document.getElementById('confirm-empty-fields')) {
-        document.getElementById('confirm-empty-fields').parentElement.remove();
-      }
-
-      const checkboxContainer = document.createElement('div');
-      checkboxContainer.style.marginTop = '20px';
-
-      confirmationCheckbox = document.createElement('input');
-      confirmationCheckbox.type = 'checkbox';
-      confirmationCheckbox.id = 'confirm-empty-fields';
-      confirmationCheckbox.name = 'confirm-empty-fields';
-
-      const checkboxLabel = document.createElement('label');
-      checkboxLabel.htmlFor = 'confirm-empty-fields';
-      checkboxLabel.style.marginLeft = '5px';
-      checkboxLabel.textContent = 'Você confirma que deseja enviar o formulário com campos vazios?';
-
-      checkboxContainer.appendChild(confirmationCheckbox);
-      checkboxContainer.appendChild(checkboxLabel);
-
-      submitButton.insertAdjacentElement('beforebegin', checkboxContainer);
-
-      submitButton.disabled = true;
-      confirmationCheckbox.addEventListener('change', () => {
-        submitButton.disabled = !confirmationCheckbox.checked;
-      });
-    }
-
-    // Função para validar o formulário em tempo real
-    function validateForm() {
-      const emptyFields = validateFields();
 
       if (emptyFields.length > 0) {
-        createConfirmationCheckbox();
+        if (!document.getElementById('confirm-empty-fields')) {
+          const checkboxContainer = document.createElement('div');
+          checkboxContainer.style.marginTop = '20px';
+
+          confirmationCheckbox = document.createElement('input');
+          confirmationCheckbox.type = 'checkbox';
+          confirmationCheckbox.id = 'confirm-empty-fields';
+          confirmationCheckbox.name = 'confirm-empty-fields';
+
+          const checkboxLabel = document.createElement('label');
+          checkboxLabel.htmlFor = 'confirm-empty-fields';
+          checkboxLabel.style.marginLeft = '5px';
+          checkboxLabel.textContent = 'Você confirma que deseja enviar o formulário com campos vazios?';
+
+          checkboxContainer.appendChild(confirmationCheckbox);
+          checkboxContainer.appendChild(checkboxLabel);
+
+          submitButton.insertAdjacentElement('beforebegin', checkboxContainer);
+
+          submitButton.disabled = true;
+          confirmationCheckbox.addEventListener('change', () => {
+            submitButton.disabled = !confirmationCheckbox.checked;
+          });
+        }
       } else {
         if (confirmationCheckbox) {
           confirmationCheckbox.parentElement.remove();
         }
         submitButton.disabled = false;
       }
+
+      return emptyFields;
     }
 
-    // Adicionar validação em tempo real
+    // Adicionar validação em tempo real para remover mensagens de erro ao preencher
     inputs.forEach((input) => {
-      input.addEventListener('input', validateForm);
+      input.addEventListener('input', () => {
+        const errorMessage = input.nextElementSibling;
+        if (errorMessage && errorMessage.classList.contains('error-message') && input.value.trim()) {
+          errorMessage.remove(); // Remove a mensagem de erro ao preencher o campo
+        }
+      });
     });
 
     // Adicionar validação no envio do formulário
@@ -96,13 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
       event.preventDefault();
       console.log("Formulário enviado, iniciando processamento...");
 
-      const emptyFields = validateFields();
+      const emptyFields = validateAndHandleCheckbox(); // Exibe mensagens de erro e checkbox ao clicar em enviar
 
-      if (emptyFields.length > 0) {
-        if (!confirmationCheckbox || !confirmationCheckbox.checked) {
-          createConfirmationCheckbox();
-          return;
-        }
+      if (emptyFields.length > 0 && (!confirmationCheckbox || !confirmationCheckbox.checked)) {
+        return;
       }
 
       showAlert('Enviando formulário...', 'info');
