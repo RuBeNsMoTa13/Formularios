@@ -25,15 +25,38 @@ document.addEventListener('DOMContentLoaded', function () {
       const emptyFields = [];
       inputs.forEach((input) => {
         const errorMessage = input.nextElementSibling;
-        if (!input.value.trim() && input.type !== 'file') {
-          emptyFields.push(input);
-          if (!errorMessage || !errorMessage.classList.contains('error-message')) {
+
+        // Verifica se o campo está vazio ou se é um grupo de rádio sem seleção
+        if (
+          (!input.value.trim() && input.type !== 'file' && input.type !== 'radio') ||
+          (input.type === 'radio' && !form.querySelector(`input[name="${input.name}"]:checked`))
+        ) {
+          if (!emptyFields.includes(input.name)) {
+            emptyFields.push(input.name);
+          }
+          if (input.type === 'radio') {
+            const group = form.querySelector(`input[name="${input.name}"]`).parentElement;
+            if (!group.querySelector('.error-message')) {
+              const errorDiv = document.createElement('div');
+              errorDiv.className = 'error-message';
+              errorDiv.style.color = 'red';
+              errorDiv.style.fontSize = '12px';
+              errorDiv.textContent = 'Por favor, selecione uma opção.';
+              group.appendChild(errorDiv);
+            }
+          } else if (!errorMessage || !errorMessage.classList.contains('error-message')) {
             const errorDiv = document.createElement('div');
             errorDiv.className = 'error-message';
             errorDiv.style.color = 'red';
             errorDiv.style.fontSize = '12px';
             errorDiv.textContent = 'Este campo está vazio.';
             input.insertAdjacentElement('afterend', errorDiv);
+          }
+        } else if (input.type === 'radio') {
+          const group = form.querySelector(`input[name="${input.name}"]`).parentElement;
+          const groupError = group.querySelector('.error-message');
+          if (groupError) {
+            groupError.remove(); // Remove o alerta se uma opção for selecionada
           }
         } else if (errorMessage && errorMessage.classList.contains('error-message')) {
           errorMessage.remove(); // Remove o alerta se o campo for preenchido
@@ -83,6 +106,22 @@ document.addEventListener('DOMContentLoaded', function () {
           submitButton.disabled = false;
         }
       });
+
+      // Adicionar evento para botões de rádio
+      if (input.type === 'radio') {
+        input.addEventListener('change', () => {
+          const group = form.querySelector(`input[name="${input.name}"]`).parentElement;
+          const groupError = group.querySelector('.error-message');
+          if (groupError) {
+            groupError.remove(); // Remove a mensagem de erro ao selecionar um rádio
+          }
+          if (confirmationCheckbox) {
+            confirmationCheckbox.parentElement.remove();
+            confirmationCheckbox = null;
+            submitButton.disabled = false;
+          }
+        });
+      }
     });
 
     // Adicionar validação no envio do formulário
@@ -95,6 +134,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (emptyFields.length > 0) {
         if (!confirmationCheckbox) {
           createConfirmationCheckbox(); // Cria a checkbox apenas ao clicar em enviar
+        }
+        if (!confirmationCheckbox || !confirmationCheckbox.checked) {
+          showAlert('Existem campos obrigatórios que não foram preenchidos. Por favor, confirme para continuar.', 'error'); // Exibe aviso de campos nulos
         }
         return;
       }

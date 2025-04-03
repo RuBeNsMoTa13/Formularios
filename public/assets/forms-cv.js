@@ -77,7 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (errorMessage && errorMessage.classList.contains('error-message') && input.value.trim()) {
           errorMessage.remove(); // Remove a mensagem de erro ao preencher o campo
         }
-        if (confirmationCheckbox) {
+
+        // Revalida os campos para verificar se ainda há campos vazios
+        const emptyFields = validateFields();
+        if (emptyFields.length === 0 && confirmationCheckbox) {
           confirmationCheckbox.parentElement.remove(); // Remove a checkbox se todos os campos forem preenchidos
           confirmationCheckbox = null;
           submitButton.disabled = false;
@@ -95,6 +98,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (emptyFields.length > 0) {
         if (!confirmationCheckbox) {
           createConfirmationCheckbox(); // Cria a checkbox apenas ao clicar em enviar
+        }
+        if (!confirmationCheckbox || !confirmationCheckbox.checked) {
+          showAlert('Existem campos obrigatórios que não foram preenchidos. Por favor, confirme para continuar.', 'error'); // Exibe aviso de campos nulos
         }
         return;
       }
