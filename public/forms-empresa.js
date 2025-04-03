@@ -1,4 +1,4 @@
-import { supabase } from '/src/supabase.js';
+import { supabase } from '../src/supabase.js';
 
 // Função para gerar UUID
 function generateUUID() {
